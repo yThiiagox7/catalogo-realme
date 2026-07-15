@@ -20,7 +20,7 @@
 .sim-start:hover{transform:translateY(-1px);background:#07994c}
 .sim-note{font-size:16px;line-height:1.45;color:#e9e9e9;margin:0;text-align:center}
 @media(max-width:560px){.sim-box{padding:38px 24px 28px}.sim-content{grid-template-columns:1fr;gap:12px}.sim-icon{margin:0}.sim-text h3{font-size:20px}.sim-text .green{font-size:19px}.sim-start{width:100%;min-width:0}.sim-note{font-size:14px}}
-.activity-ticker{margin:10px 0 2px;font-size:12px;color:#d7d7d7;min-height:18px;font-weight:700}.activity-ticker .num{color:var(--gold)}.activity-ticker .fade{animation:fadeSwap 4s infinite}@keyframes fadeSwap{0%,45%{opacity:1}50%,95%{opacity:0}100%{opacity:1}}.entry-badge{margin:8px 0;padding:8px;border-radius:10px;background:#f5c75b;color:#111;font-weight:700;font-size:13px}.entry-badge small{font-weight:500;font-size:11px}</style>
+.activity-ticker{margin:10px 0 2px;font-size:12px;color:#d7d7d7;min-height:18px;font-weight:700}.activity-ticker .num{color:var(--gold)}.activity-ticker .fade{animation:fadeSwap 4s infinite}@keyframes fadeSwap{0%,45%{opacity:1}50%,95%{opacity:0}100%{opacity:1}}</style>
 
 <style id="premium-upgrades-v17">
 .banner-section{padding:26px 0 10px!important}
@@ -48,7 +48,7 @@
 .sim-start:hover{transform:translateY(-1px);background:#07994c}
 .sim-note{font-size:16px;line-height:1.45;color:#e9e9e9;margin:0;text-align:center}
 @media(max-width:560px){.sim-box{padding:38px 24px 28px}.sim-content{grid-template-columns:1fr;gap:12px}.sim-icon{margin:0}.sim-text h3{font-size:20px}.sim-text .green{font-size:19px}.sim-start{width:100%;min-width:0}.sim-note{font-size:14px}}
-.activity-ticker{margin:10px 0 2px;font-size:12px;color:#d7d7d7;min-height:18px;font-weight:700}.activity-ticker .num{color:var(--gold)}.activity-ticker .fade{animation:fadeSwap 4s infinite}@keyframes fadeSwap{0%,45%{opacity:1}50%,95%{opacity:0}100%{opacity:1}}.entry-badge{margin:8px 0;padding:8px;border-radius:10px;background:#f5c75b;color:#111;font-weight:700;font-size:13px}.entry-badge small{font-weight:500;font-size:11px}</style>
+.activity-ticker{margin:10px 0 2px;font-size:12px;color:#d7d7d7;min-height:18px;font-weight:700}.activity-ticker .num{color:var(--gold)}.activity-ticker .fade{animation:fadeSwap 4s infinite}@keyframes fadeSwap{0%,45%{opacity:1}50%,95%{opacity:0}100%{opacity:1}}</style>
 </head>
 <body>
 <a class="floatwa" href="https://www.payjoy.com/br/pfsh-valueprop?click_source=payjoysite" target="_blank">Chamar no Instagram</a>
@@ -134,7 +134,7 @@ function badgeMeta(p){
  const labels=[];
  const has=(arr)=>arr.includes(n);
  if(has(['realme c85','realme c71','realme c75','realme note 70','realme note 60x'])) labels.push({label:'Mais vendido', key:'mais-vendidos'});
- if(has(['realme c75','realme c85','realme 14','realme note 70'])) labels.push({label:'Mais procurado', key:'mais-procurados'});
+ if(has(['realme c85','realme c75','realme c71','realme note 70'])) labels.push({label:'Nossa recomendação', key:'mais-procurados'});
  if(has(['realme c85','realme c75','realme c71','realme c100i','realme note 70','realme note 60x'])) labels.push({label:'Custo-benefício', key:'custo-beneficio'});
  if(has(['realme c85 pro','realme c85','realme c71','realme 14','realme 14 pro+','realme note 70','realme note 60x'])) labels.push({label:'Alta resistência', key:'alta-resistencia'});
  if(has(['realme c85 pro','realme c85','realme c100i','realme c71','realme note 70','realme 14','realme 14 pro+','realme 14t','realme c75'])) labels.push({label:'Maior bateria', key:'maior-bateria'});
@@ -143,7 +143,7 @@ function badgeMeta(p){
 }
 function specList(p){
  const specs=(p.tags||[]).slice(0,4);
- const seal=(p.tags||[]).some(x=>String(x).includes('IP69'))?`<div class="seal-ip69"><b>IP69</b> — Alta resistência à água e poeira</div>`:'';
+ const seal='';
  return seal + `<div class="spec-list">${specs.map((t)=>`<div class="spec-item"><span class="spec-ico">✦</span><span>${t}</span></div>`).join('')}</div>`;
 }
 let currentSeal='all';
@@ -196,7 +196,7 @@ function visibleBadges(metas){
  const extra=currentSeal==='all'&&metas.length>2?`<div class="pin-badge more-badge">+${metas.length-2} destaques</div>`:'';
  return `<div class="badge-row">${show.map(m=>`<div class="pin-badge">${m.label}</div>`).join('')}${extra}</div>`;
 }
-function card(p,i){productMap[i]=p; const metas=badgeMeta(p); return `<article id="card-${i}" class="product ${p.cat==='premium'?'premium':''}"><div class="gallery"><span class="cat">${p.net}</span><img id="${safeId(i)}" src="${p.photo}" loading="lazy" alt="${p.name}" onerror="this.style.display='none';this.parentElement.style.background='radial-gradient(circle,#3b2e16,#080808 60%)'"></div>${activityTicker(p)}<div class="info">${visibleBadges(metas)}<h3>${p.name}</h3><div class="subtitle">Versão disponível</div><div class="chips mem-switch">${p.versions&&p.versions.length?versionButtons(p,i,true):`<span class=\"chip mem-chip\">${p.mem}</span>`}</div><div class="colors">Cores: ${p.colors.map(c=>`<span title="${c}" class="dot" style="background:${colorMap[c]||'#999'}"></span>`).join('')} <span>${p.colors.join(' / ')}</span></div>${colorButtons(p,i)}${specList(p)}<div class="price"><span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase">Preço da versão</span><strong>${br(p.price)}</strong></div><div class="boleto">Até <span>18x</span> no boleto</div>${p.entry?`<div class="entry-badge">${p.entry}<br><small>Sujeito à análise de crédito.</small></div>`:''}<a class="wa sim-trigger" target="_blank" href="https://www.payjoy.com/br/pfsh-valueprop?click_source=payjoysite">${p.entry?'💳 Simular agora →':'Quero este aparelho →'}</a></div></article>`}
+function card(p,i){productMap[i]=p; const metas=badgeMeta(p); return `<article id="card-${i}" class="product ${p.cat==='premium'?'premium':''}"><div class="gallery"><span class="cat">${p.net}</span><img id="${safeId(i)}" src="${p.photo}" loading="lazy" alt="${p.name}" onerror="this.style.display='none';this.parentElement.style.background='radial-gradient(circle,#3b2e16,#080808 60%)'"></div>${activityTicker(p)}<div class="info">${visibleBadges(metas)}<h3>${p.name}</h3><div class="subtitle">Versão disponível</div><div class="chips mem-switch">${p.versions&&p.versions.length?versionButtons(p,i,true):`<span class=\"chip mem-chip\">${p.mem}</span>`}</div><div class="colors">Cores: ${p.colors.map(c=>`<span title="${c}" class="dot" style="background:${colorMap[c]||'#999'}"></span>`).join('')} <span>${p.colors.join(' / ')}</span></div>${colorButtons(p,i)}${specList(p)}<div class="price"><span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase">Preço da versão</span><strong>${br(p.price)}</strong></div><div class="boleto">Até <span>18x</span> no boleto</div><a class="wa sim-trigger" target="_blank" href="https://www.payjoy.com/br/pfsh-valueprop?click_source=payjoysite">💳 Simular agora →</a></div></article>`}
 function matchesSeal(p){ if(currentSeal==='all') return true; const ms=badgeMeta(p)||[]; return ms.some(m=>m.key===currentSeal); }
 function renderCatalog(){
   const premium=document.getElementById('premium-products');
@@ -289,4 +289,4 @@ function bindActivityTickers(){setInterval(()=>{document.querySelectorAll('.acti
   </div>
 </div>
 </body></html>
-<style>.hero{padding:12px!important}.filters{position:sticky;top:0;background:#fff;z-index:10}.entry-badge{margin:8px 0;padding:8px;border-radius:10px;background:#f5c75b;color:#111;font-weight:700;font-size:13px}.entry-badge small{font-weight:500;font-size:11px}</style>
+<style>.hero{padding:12px!important}.filters{position:sticky;top:0;background:#fff;z-index:10}</style>
