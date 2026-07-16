@@ -5,51 +5,181 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Catálogo Realme — Até 18x no Boleto</title>
 <style>
-:root{--bg:#050505;--panel:#10100f;--card:#151514;--line:#2a2416;--gold:#f5c75b;--gold2:#d79d2e;--muted:#c7c7c7;--txt:#fff;--green:#25d366;--ig1:#fd5949;--ig2:#d6249f;--ig3:#285AEB}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at top,#202014 0,#070707 32%,#000 100%);color:var(--txt)}a{color:inherit}.wrap{max-width:1180px;margin:auto;padding:0 18px}.hero{min-height:18vh;display:grid;align-items:center;position:relative;overflow:hidden;border-bottom:1px solid #2b2415}.hero:before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 75% 25%,rgba(245,199,91,.22),transparent 28%),linear-gradient(120deg,rgba(255,255,255,.06),transparent 35%);filter:blur(1px)}.hero-grid{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}.brand{display:inline-flex;align-items:center;gap:12px;font-weight:900;font-size:30px;letter-spacing:-1px}.brand b{background:var(--gold);color:#000;border-radius:5px;padding:2px 7px}.eyebrow{margin-top:26px;color:var(--gold);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:13px}.hero h1{font-size:clamp(42px,7vw,86px);line-height:.92;margin:14px 0 18px;letter-spacing:-4px}.hero p{display:none}.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}.btn{border:1px solid rgba(245,199,91,.55);background:linear-gradient(135deg,var(--gold),var(--gold2));color:#070707;text-decoration:none;font-weight:900;border-radius:999px;padding:15px 22px;box-shadow:0 18px 50px rgba(245,199,91,.17)}.btn.dark{background:#111;color:#fff;border-color:#3c321e}.hero-card{background:linear-gradient(160deg,#181818,#080808);border:1px solid #3a2e16;border-radius:28px;padding:22px;box-shadow:0 30px 90px rgba(0,0,0,.55);position:relative}.phone-stack{height:390px;border-radius:22px;background:radial-gradient(circle at center,rgba(245,199,91,.22),transparent 48%),linear-gradient(135deg,#050505,#24210f);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}.phone-stack img{width:100%;height:100%;object-fit:cover;filter:none}.phone-stack.kiosk:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.45))}.stack-overlay{position:absolute;left:18px;right:18px;bottom:16px;z-index:2;background:rgba(0,0,0,.38);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:12px 14px}.stack-overlay span{display:block;font-weight:900;color:#fff;font-size:18px}.stack-overlay small{display:block;color:#e7e7e7;margin-top:4px;font-size:12px;line-height:1.35}.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.badge{background:#0d0d0d;border:1px solid #2c2518;border-radius:15px;padding:12px;text-align:center;color:#ddd;font-size:13px}.badge strong{display:block;color:var(--gold);font-size:18px}.section{padding:58px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:22px;margin-bottom:24px}.section h2{font-size:clamp(30px,4vw,48px);margin:0;letter-spacing:-2px}.section p{color:#bdbdbd;margin:8px 0 0}.tabs{display:flex;gap:10px;flex-wrap:wrap}.tab{background:#111;border:1px solid #2a2416;color:#eee;border-radius:999px;padding:10px 14px;font-weight:800;text-decoration:none}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.product{background:linear-gradient(180deg,#141414,#080808);border:1px solid #2a2416;border-radius:24px;overflow:hidden;position:relative;box-shadow:0 18px 60px rgba(0,0,0,.28)}.product.premium{border-color:rgba(245,199,91,.7);box-shadow:0 0 0 1px rgba(245,199,91,.08),0 28px 80px rgba(245,199,91,.08)}.gallery{height:280px;background:radial-gradient(circle at 50% 24%,rgba(245,199,91,.2),transparent 36%),linear-gradient(180deg,#121212,#090909);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}.gallery:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.04),transparent 26%,rgba(0,0,0,.08));pointer-events:none}.gallery img{max-width:96%;max-height:96%;object-fit:contain;transition:.35s;filter:drop-shadow(0 22px 32px rgba(0,0,0,.62));padding:6px;image-rendering:auto}.product:hover img{transform:scale(1.035)}.cat{position:absolute;top:14px;left:14px;border:1px solid #3d321d;background:rgba(0,0,0,.72);backdrop-filter:blur(8px);border-radius:999px;padding:7px 10px;color:var(--gold);font-size:12px;font-weight:900}.pin-badge{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(245,199,91,.35);background:linear-gradient(135deg,rgba(245,199,91,.22),rgba(245,199,91,.08));border-radius:999px;padding:8px 11px;color:#fff;font-size:11px;font-weight:1000;box-shadow:0 8px 18px rgba(245,199,91,.16);letter-spacing:.02em}.pin-badge:before{content:"★";color:var(--gold);font-size:12px;line-height:1}.seal-filter.active{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#080808;border-color:transparent}.seal-ip69{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(245,199,91,.42);background:linear-gradient(135deg,rgba(245,199,91,.24),rgba(245,199,91,.08));border-radius:999px;padding:9px 12px;color:#fff;font-size:12px;font-weight:1000;margin:4px 0 12px;box-shadow:0 10px 24px rgba(245,199,91,.16)}.seal-ip69 b{color:var(--gold);font-size:13px}.info{padding:18px}.info h3{font-size:24px;line-height:1.04;margin:0 0 10px;min-height:50px}.info{padding:22px}.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 12px}.chip{font-size:12px;border:1px solid rgba(245,199,91,.22);background:rgba(245,199,91,.06);border-radius:999px;padding:7px 10px;color:#f3e3b4;font-weight:800}.spec-list{display:flex;flex-direction:column;gap:8px;margin:8px 0 14px}.spec-item{background:linear-gradient(180deg,#111,#0b0b0b);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:10px;color:#f0f0f0;font-size:12px;font-weight:850;line-height:1.25;min-height:48px;display:flex;align-items:center;gap:7px}.spec-ico{color:var(--gold);font-weight:1000;font-size:13px;flex:0 0 auto}.subtitle{color:#d9d9d9;font-size:13px;font-weight:700;margin:2px 0 10px}.price{font-size:15px;color:#bdbdbd;margin-top:8px}.price strong{display:block;color:var(--gold);font-size:34px;letter-spacing:-1px;margin-top:4px;text-shadow:0 0 18px rgba(245,199,91,.08)}.entry-badge{background:#ffd54f;color:#111;padding:8px;border-radius:10px;margin:8px 0;font-weight:700}.entry-badge small{font-weight:400;font-size:.72rem;display:block}
-.boleto{font-size:24px;font-weight:1000;color:#fff;margin:14px 0 16px;background:linear-gradient(135deg,rgba(245,199,91,.18),rgba(245,199,91,.06));border:1px solid rgba(245,199,91,.38);border-radius:16px;padding:12px 14px;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 10px 26px rgba(245,199,91,.10)}.boleto:before{content:"💳";font-size:22px;line-height:1}.boleto span{color:var(--gold);font-size:30px;letter-spacing:-1px}.colors{display:flex;align-items:center;gap:8px;color:#bdbdbd;font-size:13px;margin:8px 0 10px}.dot{width:17px;height:17px;border-radius:50%;border:1px solid rgba(255,255,255,.35);display:inline-block}.color-buttons{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 14px}.color-btn{background:#101010;color:#ddd;border:1px solid #332a18;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:800;cursor:pointer;transition:.2s}.color-btn:hover,.color-btn.active{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#080808;border-color:transparent}.wa{display:block;text-align:center;text-decoration:none;background:linear-gradient(135deg,var(--ig1),var(--ig2) 60%,var(--ig3));color:#fff;font-weight:900;border-radius:14px;padding:14px;margin-top:14px;box-shadow:0 14px 26px rgba(214,36,159,.22);letter-spacing:.02em;transition:transform .18s ease, box-shadow .18s ease}.wa:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(214,36,159,.28)}.note{background:linear-gradient(135deg,#111,#090909);border:1px solid #2b2416;border-radius:24px;padding:22px;color:#ddd}.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.trust .note{text-align:center}.floatwa{position:fixed;right:18px;bottom:18px;z-index:20;background:var(--green);color:#061209;font-weight:1000;text-decoration:none;border-radius:999px;padding:14px 18px;box-shadow:0 16px 40px rgba(37,211,102,.35)}footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}.small{font-size:12px;color:#888;line-height:1.45}@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.phone-stack{height:320px}.grid{grid-template-columns:1fr 1fr}.trust{grid-template-columns:1fr 1fr}.section-head{display:block}.hero h1{letter-spacing:-2px}}@media(max-width:560px){.grid,.trust{grid-template-columns:1fr}.hero{min-height:auto;padding:18px 0}.badges{grid-template-columns:1fr}.gallery{height:230px}.floatwa{left:18px;text-align:center}.brand{font-size:24px}}
-.version-wrap{margin:4px 0 14px}.version-label{font-size:11px;color:#d8d8d8;margin-bottom:8px;font-weight:800;letter-spacing:.02em}.version-buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px}.version-btn{position:relative;background:linear-gradient(180deg,#121826,#0d111b);color:#eef3ff;border:1px solid rgba(139,180,255,.20);border-radius:14px;padding:9px 10px;font-size:11px;font-weight:1000;cursor:pointer;transition:.22s;box-shadow:inset 0 1px 0 rgba(255,255,255,.03);line-height:1.15}.version-btn:before{content:"Versão";display:block;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#95a8d6;margin-bottom:3px}.version-btn:hover{transform:translateY(-1px);border-color:rgba(139,180,255,.38);box-shadow:0 8px 18px rgba(54,92,173,.16)}.version-btn.active{background:linear-gradient(135deg,#9dc0ff,#dce8ff);color:#101420;border-color:transparent;box-shadow:0 10px 22px rgba(139,180,255,.24)}.version-btn.active:before{color:#233a6d}@media (max-width:520px){.version-buttons{grid-template-columns:1fr 1fr}}.mem-switch{margin-bottom:6px}.version-buttons.compact{display:flex;gap:8px;flex-wrap:wrap}.version-btn.compact{padding:8px 12px;border-radius:999px;font-size:12px;line-height:1;border:1px solid rgba(245,199,91,.22);background:linear-gradient(180deg,#11141c,#0b0e15);color:#eef3ff;box-shadow:inset 0 1px 0 rgba(255,255,255,.03);font-weight:900;letter-spacing:.01em}.version-btn.compact:before{display:none}.version-btn.compact:hover{transform:translateY(-1px);border-color:rgba(245,199,91,.38);box-shadow:0 8px 18px rgba(0,0,0,.20)}.version-btn.compact.active{background:linear-gradient(135deg,var(--gold),#ffe8a2);color:#111;border-color:transparent;box-shadow:0 10px 22px rgba(245,199,91,.24)}.badge-row{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 14px}.more-badge{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:#ddd;box-shadow:none}.seal-filter{white-space:nowrap}
-.sim-modal{position:fixed;inset:0;background:rgba(0,0,0,.62);display:none;align-items:center;justify-content:center;z-index:999;padding:18px;backdrop-filter:blur(5px)}
-.sim-modal.active{display:flex}
-.sim-box{width:min(560px,100%);background:#121212;border:1px solid rgba(255,255,255,.08);border-radius:0;padding:42px 42px 32px;position:relative;box-shadow:0 30px 90px rgba(0,0,0,.62);color:#fff}
-.sim-close{position:absolute;top:18px;right:20px;background:transparent;border:0;color:#cfd6df;font-size:31px;line-height:1;cursor:pointer;font-weight:300}
-.sim-content{display:grid;grid-template-columns:1fr;gap:14px;align-items:center;justify-items:center;text-align:center}
-.sim-icon{width:38px;height:38px;display:flex;align-items:center;justify-content:center;color:#cfd6df;margin:0 auto 2px}
-.sim-icon svg{width:38px;height:38px;opacity:.95}
-.sim-text h3{font-size:21px;line-height:1.25;margin:0 0 16px;font-weight:1000;letter-spacing:-.3px;text-align:center}
-.sim-text .green{color:#00d35f;font-size:21px;line-height:1.35;margin:0 0 18px;text-align:center}
-.sim-start{display:inline-flex;align-items:center;justify-content:center;min-width:240px;border-radius:999px;background:#078b45;color:#fff;text-decoration:none;font-size:16px;font-weight:1000;padding:15px 28px;margin:0 auto 18px;box-shadow:0 14px 30px rgba(0,139,69,.22);transition:.18s}
-.sim-start:hover{transform:translateY(-1px);background:#07994c}
-.sim-note{font-size:16px;line-height:1.45;color:#e9e9e9;margin:0;text-align:center}
-@media(max-width:560px){.sim-box{padding:38px 24px 28px}.sim-content{grid-template-columns:1fr;gap:12px}.sim-icon{margin:0}.sim-text h3{font-size:20px}.sim-text .green{font-size:19px}.sim-start{width:100%;min-width:0}.sim-note{font-size:14px}}
-.activity-ticker{margin:10px 0 2px;font-size:12px;color:#d7d7d7;min-height:18px;font-weight:700}.activity-ticker .num{color:var(--gold)}.activity-ticker .fade{animation:fadeSwap 4s infinite}@keyframes fadeSwap{0%,45%{opacity:1}50%,95%{opacity:0}100%{opacity:1}}</style>
+/* =========================================================
+   1. VARIÁVEIS E BASE
+========================================================= */
+:root{--bg:#050505;--panel:#10100f;--card:#151514;--line:#2a2416;--gold:#f5c75b;--gold2:#d79d2e;--muted:#c7c7c7;--txt:#fff;--green:#25d366;--ig1:#fd5949;--ig2:#d6249f;--ig3:#285AEB}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at top,#202014 0,#070707 32%,#000 100%);color:var(--txt)}
+a{color:inherit}
+.wrap{max-width:1180px;margin:auto;padding:0 18px}
 
-<style id="premium-upgrades-v17">
+/* =========================================================
+   2. HEADER E HERO SECTION
+========================================================= */
+.hero{min-height:18vh;display:grid;align-items:center;position:relative;overflow:hidden;border-bottom:1px solid #2b2415;padding:12px!important}
+.hero:before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 75% 25%,rgba(245,199,91,.22),transparent 28%),linear-gradient(120deg,rgba(255,255,255,.06),transparent 35%);filter:blur(1px)}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+.brand{display:inline-flex;align-items:center;gap:12px;font-weight:900;font-size:30px;letter-spacing:-1px}
+.brand b{background:var(--gold);color:#000;border-radius:5px;padding:2px 7px}
+.eyebrow{margin-top:26px;color:var(--gold);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:13px}
+.hero h1{font-size:clamp(42px,7vw,86px);line-height:.92;margin:14px 0 18px;letter-spacing:-4px}
+.hero p{display:none}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}
+.btn{border:1px solid rgba(245,199,91,.55);background:linear-gradient(135deg,var(--gold),var(--gold2));color:#070707;text-decoration:none;font-weight:900;border-radius:999px;padding:15px 22px;box-shadow:0 18px 50px rgba(245,199,91,.17)}
+.btn.dark{background:#111;color:#fff;border-color:#3c321e}
+.hero-card{background:linear-gradient(160deg,#181818,#080808);border:1px solid #3a2e16;border-radius:28px;padding:22px;box-shadow:0 30px 90px rgba(0,0,0,.55);position:relative}
+.phone-stack{height:390px;border-radius:22px;background:radial-gradient(circle at center,rgba(245,199,91,.22),transparent 48%),linear-gradient(135deg,#050505,#24210f);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.phone-stack img{width:100%;height:100%;object-fit:cover;filter:none}
+.phone-stack.kiosk:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.45))}
+.stack-overlay{position:absolute;left:18px;right:18px;bottom:16px;z-index:2;background:rgba(0,0,0,.38);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:12px 14px}
+.stack-overlay span{display:block;font-weight:900;color:#fff;font-size:18px}
+.stack-overlay small{display:block;color:#e7e7e7;margin-top:4px;font-size:12px;line-height:1.35}
+.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.badge{background:#0d0d0d;border:1px solid #2c2518;border-radius:15px;padding:12px;text-align:center;color:#ddd;font-size:13px}
+.badge strong{display:block;color:var(--gold);font-size:18px}
+
+/* =========================================================
+   3. SEÇÕES E BANNERS
+========================================================= */
+.section{padding:58px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:22px;margin-bottom:24px}
+.section h2{font-size:clamp(30px,4vw,48px);margin:0;letter-spacing:-2px}
+.section p{color:#bdbdbd;margin:8px 0 0}
+.tabs{display:flex;gap:10px;flex-wrap:wrap}
+.tab{background:#111;border:1px solid #2a2416;color:#eee;border-radius:999px;padding:10px 14px;font-weight:800;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .banner-section{padding:26px 0 10px!important}
 .conversion-banner{display:block;overflow:hidden;border-radius:26px;border:1px solid rgba(245,197,107,.34);box-shadow:0 22px 70px rgba(0,0,0,.48),0 0 0 1px rgba(255,255,255,.04);background:#050505;position:relative}
 .conversion-banner:after{content:"Clique para simular no boleto";position:absolute;right:18px;bottom:14px;background:rgba(0,0,0,.72);color:#ffdf9a;border:1px solid rgba(245,197,107,.42);border-radius:999px;padding:9px 13px;font-size:12px;font-weight:900;letter-spacing:.02em;backdrop-filter:blur(8px)}
 .conversion-banner img{width:100%;display:block;object-fit:cover}
-.product{transition:transform .25s ease, box-shadow .25s ease!important}
-.product:hover{transform:translateY(-5px);box-shadow:0 28px 72px rgba(0,0,0,.48)!important}
-.gallery img{transition:opacity .22s ease,transform .35s ease!important}
-.color-btn{transition:background .2s ease,color .2s ease,box-shadow .2s ease,transform .2s ease!important}
-.color-btn:hover,.color-btn.active{box-shadow:0 8px 22px rgba(245,197,107,.18);transform:translateY(-1px)}
-.wa{transition:transform .2s ease,box-shadow .2s ease}.wa:hover{transform:translateY(-1px);box-shadow:0 10px 28px rgba(37,211,102,.28)}
-@media(max-width:620px){.banner-section{padding:18px 0 6px!important}.conversion-banner{border-radius:18px}.conversion-banner:after{font-size:10px;right:10px;bottom:9px;padding:7px 10px}}
-.version-wrap{margin:4px 0 14px}.version-label{font-size:11px;color:#d8d8d8;margin-bottom:8px;font-weight:800;letter-spacing:.02em}.version-buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px}.version-btn{position:relative;background:linear-gradient(180deg,#121826,#0d111b);color:#eef3ff;border:1px solid rgba(139,180,255,.20);border-radius:14px;padding:9px 10px;font-size:11px;font-weight:1000;cursor:pointer;transition:.22s;box-shadow:inset 0 1px 0 rgba(255,255,255,.03);line-height:1.15}.version-btn:before{content:"Versão";display:block;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#95a8d6;margin-bottom:3px}.version-btn:hover{transform:translateY(-1px);border-color:rgba(139,180,255,.38);box-shadow:0 8px 18px rgba(54,92,173,.16)}.version-btn.active{background:linear-gradient(135deg,#9dc0ff,#dce8ff);color:#101420;border-color:transparent;box-shadow:0 10px 22px rgba(139,180,255,.24)}.version-btn.active:before{color:#233a6d}@media (max-width:520px){.version-buttons{grid-template-columns:1fr 1fr}}.mem-switch{margin-bottom:6px}.version-buttons.compact{display:flex;gap:8px;flex-wrap:wrap}.version-btn.compact{padding:8px 12px;border-radius:999px;font-size:12px;line-height:1;border:1px solid rgba(245,199,91,.22);background:linear-gradient(180deg,#11141c,#0b0e15);color:#eef3ff;box-shadow:inset 0 1px 0 rgba(255,255,255,.03);font-weight:900;letter-spacing:.01em}.version-btn.compact:before{display:none}.version-btn.compact:hover{transform:translateY(-1px);border-color:rgba(245,199,91,.38);box-shadow:0 8px 18px rgba(0,0,0,.20)}.version-btn.compact.active{background:linear-gradient(135deg,var(--gold),#ffe8a2);color:#111;border-color:transparent;box-shadow:0 10px 22px rgba(245,199,91,.24)}.badge-row{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 14px}.more-badge{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:#ddd;box-shadow:none}.seal-filter{white-space:nowrap}
-.sim-modal{position:fixed;inset:0;background:rgba(0,0,0,.62);display:none;align-items:center;justify-content:center;z-index:999;padding:18px;backdrop-filter:blur(5px)}
-.sim-modal.active{display:flex}
-.sim-box{width:min(560px,100%);background:#121212;border:1px solid rgba(255,255,255,.08);border-radius:0;padding:42px 42px 32px;position:relative;box-shadow:0 30px 90px rgba(0,0,0,.62);color:#fff}
-.sim-close{position:absolute;top:18px;right:20px;background:transparent;border:0;color:#cfd6df;font-size:31px;line-height:1;cursor:pointer;font-weight:300}
-.sim-content{display:grid;grid-template-columns:1fr;gap:14px;align-items:center;justify-items:center;text-align:center}
-.sim-icon{width:38px;height:38px;display:flex;align-items:center;justify-content:center;color:#cfd6df;margin:0 auto 2px}
-.sim-icon svg{width:38px;height:38px;opacity:.95}
-.sim-text h3{font-size:21px;line-height:1.25;margin:0 0 16px;font-weight:1000;letter-spacing:-.3px;text-align:center}
-.sim-text .green{color:#00d35f;font-size:21px;line-height:1.35;margin:0 0 18px;text-align:center}
-.sim-start{display:inline-flex;align-items:center;justify-content:center;min-width:240px;border-radius:999px;background:#078b45;color:#fff;text-decoration:none;font-size:16px;font-weight:1000;padding:15px 28px;margin:0 auto 18px;box-shadow:0 14px 30px rgba(0,139,69,.22);transition:.18s}
-.sim-start:hover{transform:translateY(-1px);background:#07994c}
-.sim-note{font-size:16px;line-height:1.45;color:#e9e9e9;margin:0;text-align:center}
-@media(max-width:560px){.sim-box{padding:38px 24px 28px}.sim-content{grid-template-columns:1fr;gap:12px}.sim-icon{margin:0}.sim-text h3{font-size:20px}.sim-text .green{font-size:19px}.sim-start{width:100%;min-width:0}.sim-note{font-size:14px}}
-.activity-ticker{margin:10px 0 2px;font-size:12px;color:#d7d7d7;min-height:18px;font-weight:700}.activity-ticker .num{color:var(--gold)}.activity-ticker .fade{animation:fadeSwap 4s infinite}@keyframes fadeSwap{0%,45%{opacity:1}50%,95%{opacity:0}100%{opacity:1}}</style>
+
+/* =========================================================
+   4. NOVO DESIGN DOS CARDS DE PRODUTOS (UX Otimizado)
+========================================================= */
+.product {
+  background: linear-gradient(180deg, #141414, #080808);
+  border: 1px solid rgba(245, 199, 91, 0.22);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.product.premium{border-color:rgba(245,199,91,.7);box-shadow:0 0 0 1px rgba(245,199,91,.08),0 28px 80px rgba(245,199,91,.08)}
+.product:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 15px rgba(245, 199, 91, 0.15);
+}
+.product-header {
+  position: relative;
+  height: 240px;
+  background: radial-gradient(circle at 50% 40%, rgba(245, 199, 91, 0.12), transparent 70%), #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.product-header img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.5));
+  transition: transform 0.3s ease;
+}
+.product:hover .product-header img { transform: scale(1.05); }
+
+.badge-top-left { position: absolute; top: 12px; left: 12px; z-index: 2; }
+.badge-top-right {
+  position: absolute; top: 12px; right: 12px;
+  background: rgba(0, 0, 0, 0.75); border: 1px solid rgba(245, 199, 91, 0.4);
+  color: #f5c75b; font-size: 11px; font-weight: 800; padding: 4px 10px;
+  border-radius: 999px; backdrop-filter: blur(4px);
+}
+.pin-badge{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(245,199,91,.35);background:linear-gradient(135deg,rgba(245,199,91,.22),rgba(245,199,91,.08));border-radius:999px;padding:8px 11px;color:#fff;font-size:11px;font-weight:1000;box-shadow:0 8px 18px rgba(245,199,91,.16);letter-spacing:.02em}
+.pin-badge:before{content:"★";color:var(--gold);font-size:12px;line-height:1}
+
+.product-body { padding: 18px 18px 10px 18px; flex-grow: 1; display:flex; flex-direction:column; }
+.brand-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #f5c75b; font-weight: 800; margin-bottom: 2px; }
+.product-name { font-size: 20px; font-weight: 900; color: #fff; margin: 0 0 12px 0; line-height: 1.2; }
+.storage-chip {
+  display: inline-block; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #e0e0e0; font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 8px; margin-bottom: 12px;
+}
+.color-dots-wrap { display: flex; align-items: center; gap: 6px; margin-bottom: 16px; }
+.color-dot { width: 14px; height: 14px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.4); box-shadow: 0 2px 4px rgba(0,0,0,0.4); }
+.color-label { font-size: 12px; color: #a0a0a0; margin-left: 4px; }
+
+/* Bloco de Preço & CTA do Card */
+.price-block {
+  background: rgba(245, 199, 91, 0.05); border: 1px solid rgba(245, 199, 91, 0.2);
+  border-radius: 14px; padding: 12px; text-align: center; margin-top: auto;
+}
+.price-label { font-size: 11px; text-transform: uppercase; color: #b0b0b0; letter-spacing: 0.05em; }
+.main-price { font-size: 26px; font-weight: 1000; color: #f5c75b; line-height: 1.1; margin: 2px 0; }
+.boleto-tag { font-size: 13px; font-weight: 800; color: #ffffff; display: flex; align-items: center; justify-content: center; gap: 5px; margin-top: 4px; }
+
+/* Botão "Ver Detalhes" */
+.btn-details {
+  display: block; width: 100%; text-align: center; background: linear-gradient(135deg, #f5c75b, #d79d2e);
+  color: #000; font-weight: 900; font-size: 14px; padding: 12px; border-radius: 12px; border:none; cursor:pointer;
+  text-decoration: none; margin-top: 14px; box-shadow: 0 6px 16px rgba(245, 199, 91, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-details:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(245, 199, 91, 0.35); }
+
+/* Seletor de Versão (Trazido para o Card) */
+.version-buttons.compact{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.version-btn.compact{padding:6px 10px;border-radius:8px;font-size:12px;line-height:1;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:#e0e0e0;font-weight:700;cursor:pointer;transition:.2s}
+.version-btn.compact:hover{border-color:rgba(245,199,91,.38)}
+.version-btn.compact.active{background:rgba(245,199,91,.15);color:var(--gold);border-color:var(--gold)}
+
+/* =========================================================
+   5. POP-UP / MODAL APPLE STORE (Detalhes e Boleto)
+========================================================= */
+.details-modal { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 20px; }
+.details-modal.active { display: flex; }
+.details-box { background: linear-gradient(165deg, #191919 0%, #0d0d0d 100%); border: 1px solid rgba(245, 199, 91, 0.35); border-radius: 28px; width: min(640px, 100%); max-height: 88vh; overflow-y: auto; padding: 32px; position: relative; box-shadow: 0 35px 100px rgba(0, 0, 0, 0.85); color: #fff; animation: modalSlideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1); }
+@keyframes modalSlideUp { from { opacity: 0; transform: translateY(22px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.details-close { position: absolute; top: 20px; right: 22px; background: rgba(255, 255, 255, 0.1); border: 0; color: #e0e0e0; font-size: 22px; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; z-index: 5; }
+.details-close:hover { background: rgba(255, 255, 255, 0.25); color: #fff; }
+.det-img-wrapper { background: radial-gradient(circle at center, rgba(245, 199, 91, 0.15), transparent 65%); padding: 20px; border-radius: 20px; text-align: center; margin-bottom: 20px; }
+.det-img-wrapper img { max-width: 220px; max-height: 220px; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.65)); }
+.det-title { font-size: 28px; font-weight: 900; margin: 0 0 6px; letter-spacing: -0.5px; }
+.det-tagline { color: var(--gold); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 18px; }
+.det-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.det-pill { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 999px; padding: 7px 14px; font-size: 12px; font-weight: 700; color: #e5e5e5; }
+.det-specs-title { font-size: 14px; font-weight: 800; margin: 18px 0 10px; color: #ddd; }
+/* Grid das especificações alterado para 1fr (vertical) conforme pedido */
+.det-specs-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 22px; }
+.det-spec-card { background: #121212; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 12px 14px; font-size: 13px; font-weight: 700; color: #eee; display: flex; align-items: center; gap: 10px; }
+.det-spec-card .ico { color: var(--gold); font-size: 15px; }
+.det-price-box { background: linear-gradient(135deg, rgba(245, 199, 91, 0.12), rgba(245, 199, 91, 0.03)); border: 1px solid rgba(245, 199, 91, 0.3); border-radius: 20px; padding: 18px; text-align: center; margin-top: 15px; }
+.det-price-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #bbb; }
+.det-price-val { font-size: 32px; font-weight: 1000; color: var(--gold); margin: 4px 0 10px; }
+
+/* Botão WhatsApp Modal */
+.wa{display:block;text-align:center;text-decoration:none;background:linear-gradient(135deg,var(--ig1),var(--ig2) 60%,var(--ig3));color:#fff;font-weight:900;border-radius:14px;padding:14px;margin-top:10px;box-shadow:0 14px 26px rgba(214,36,159,.22);letter-spacing:.02em;transition:transform .18s ease, box-shadow .18s ease}
+.wa:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(214,36,159,.28)}
+
+/* =========================================================
+   6. COMPONENTES GERAIS (Footer, Trust, Selos)
+========================================================= */
+.seal-filter.active{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#080808;border-color:transparent}
+.seal-ip69{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(245,199,91,.42);background:linear-gradient(135deg,rgba(245,199,91,.24),rgba(245,199,91,.08));border-radius:999px;padding:9px 12px;color:#fff;font-size:12px;font-weight:1000;margin:4px 0 12px;box-shadow:0 10px 24px rgba(245,199,91,.16)}
+.seal-ip69 b{color:var(--gold);font-size:13px}
+.entry-badge{margin:8px 0;padding:8px;border-radius:10px;background:#f5c75b;color:#111;font-weight:700;font-size:13px}.entry-badge small{font-weight:500;font-size:11px}
+.note{background:linear-gradient(135deg,#111,#090909);border:1px solid #2b2416;border-radius:24px;padding:22px;color:#ddd}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.trust .note{text-align:center}
+.floatwa{position:fixed;right:18px;bottom:18px;z-index:20;background:var(--green);color:#061209;font-weight:1000;text-decoration:none;border-radius:999px;padding:14px 18px;box-shadow:0 16px 40px rgba(37,211,102,.35)}
+footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
+.small{font-size:12px;color:#888;line-height:1.45}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.phone-stack{height:320px}.grid{grid-template-columns:1fr 1fr}.trust{grid-template-columns:1fr 1fr}.section-head{display:block}.hero h1{letter-spacing:-2px}}
+@media(max-width:560px){.grid,.trust{grid-template-columns:1fr}.hero{min-height:auto;padding:18px 0}.badges{grid-template-columns:1fr}.floatwa{left:18px;text-align:center}.brand{font-size:24px}}
+</style>
 </head>
 <body>
 <a class="floatwa" href="https://www.payjoy.com/br/pfsh-valueprop?click_source=payjoysite" target="_blank">Chamar no Instagram</a>
@@ -65,8 +195,15 @@
 <section class="section" style="padding-top:10px"><div class="wrap"><div class="tabs" id="seal-tabs"><a class="tab seal-filter active" href="#" data-seal="all">Todos</a><a class="tab seal-filter" href="#" data-seal="mais-vendidos">Mais vendidos</a><a class="tab seal-filter" href="#" data-seal="mais-procurados">Mais procurados</a><a class="tab seal-filter" href="#" data-seal="custo-beneficio">Melhor custo-benefício</a><a class="tab seal-filter" href="#" data-seal="alta-resistencia">Alta resistência</a><a class="tab seal-filter" href="#" data-seal="maior-bateria">Maior bateria</a><a class="tab seal-filter" href="#" data-seal="cameras-premium">Câmeras premium</a></div></div></section><section id="destaques" class="section"><div class="section-head"><div><h2>👑 Destaques Premium</h2><p>Modelos com maior percepção de valor para abrir o catálogo.</p></div><div class="tabs"><a class="tab" href="#5g">5G</a><a class="tab" href="#4g">4G</a></div></div><div class="grid" id="premium-products"></div></section>
 <section id="5g" class="section"><div class="section-head"><div><h2>🚀 Smartphones 5G</h2><p>Modelos separados das versões 4G para não confundir o cliente.</p></div></div><div class="grid" id="fiveg-products"></div></section>
 <section id="4g" class="section"><div class="section-head"><div><h2>📱 Smartphones 4G</h2><p>Opções com ótimo custo-benefício e foco em memória, bateria e resistência.</p></div></div><div class="grid" id="fourg-products"></div></section>
-<section class="section"><div class="note"><h2>Como funciona?</h2><p>Escolha o modelo, clique em <b>💳 Simular agora →</b> e fale direto pelo Instagram. O atendimento confirma as condições no boleto e orienta os próximos passos para retirada em loja.</p><p class="small">Imagens meramente ilustrativas. Cores e disponibilidade podem variar conforme estoque da loja. Valores sujeitos à alteração sem aviso prévio.</p></div></section>
 </main><footer><div class="wrap"><b>Realme Store — Catálogo Boleto</b><p class="small">Atendimento via Instagram: @realme.es.vilavelha. Página criada para compartilhamento com clientes interessados em compra no boleto.</p></div></footer>
+
+<div class="details-modal" id="detailsModal" aria-hidden="true" onclick="if(event.target===this) closeDetailsModal()">
+  <div class="details-box" role="dialog" aria-modal="true">
+    <button class="details-close" type="button" onclick="closeDetailsModal()" aria-label="Fechar detalhes">&times;</button>
+    <div id="detailsContent"></div>
+  </div>
+</div>
+
 <script>
 const img={
  hero:'assets/realme14proplus_user.png',
@@ -82,6 +219,7 @@ const img={
  c71:'https://static2.realme.net/images/realme-c71-in/1751853547001327d6c5d95ab41aea3b2261981699709.webp',
  note70:'https://dcdn-us.mitiendanube.com/stores/004/891/876/products/1-aa71a0c90aaa01d9a917579741660964-480-0.webp'
 };
+
 const products=[
 {name:'realme 14 Pro+ 5G',cat:'premium',net:'5G',price:4299.90,mem:'12GB + 512GB',colors:['Pearl White','Suede Grey'],tags:['Bateria de 6000mAh + 80W⚡','Processador Snapdragon 7s Gen 3','Câmera de 50MP + Periscópio Sony 3X com OIS','Tela OLED 1.5K 6,83” 120Hz'],photo:'assets/pro_white.png',variants:[{color:'Pearl White',photo:'assets/pro_white.png'},{color:'Suede Grey',photo:'assets/pro_black.png'}],entry:'💳 Entrada a partir de R$ 2.700*'},
 {name:'realme 12 Pro+ 5G',cat:'premium',net:'5G',price:3699.90,mem:'12GB + 512GB',colors:['Azul'],tags:['Bateria de 5000mAh + 67W⚡','Processador Snapdragon 7s Gen 2','Câmera de 50MP + Periscópio 64MP com zoom 120X','Tela Curved Vision 6,7” 120Hz'],photo:img.r12pro_user,variants:[{color:'Azul',photo:img.r12pro_user}],entry:'💳 Entrada a partir de R$ 2.100*'},
@@ -90,7 +228,7 @@ const products=[
 {name:'realme 13 5G',cat:'5g',net:'5G',price:2149.90,mem:'8GB + 256GB',colors:['Verde','Roxo Escuro'],tags:['Bateria de 5000mAh + 45W⚡','Processador Dimensity 6300 5G','Câmera de 50MP com OIS','Tela FHD+ 6,72” 120Hz'],photo:'assets/r13_green.png',variants:[{color:'Verde',photo:'assets/r13_green.png'},{color:'Roxo Escuro',photo:'assets/r13_purple.png'}]},
 {name:'realme C75 5G',cat:'5g',net:'5G',price:2119.90,mem:'8GB + 256GB',colors:['Preto Obsidiana','Dourado'],tags:['Bateria de 5828mAh + 45W⚡','Processador Dimensity 6300 5G','Câmera de 50MP com IA','Tela FHD 6,72” 90Hz'],photo:'assets/c75_5g_black.png',variants:[{color:'Preto Obsidiana',photo:'assets/c75_5g_black.png'},{color:'Dourado',photo:'assets/c75_5g_gold.png'}]},
 {name:'realme C71 5G',cat:'5g',net:'5G',price:1949.90,mem:'8GB + 256GB',colors:['Preto','Verde'],tags:['Bateria de 5000mAh','Processador Dimensity 6300 5G','Câmera de 50MP com IA','Tela IPS LCD 6,67” 120Hz'],photo:'assets/c71_5g_black.png',variants:[{color:'Preto',photo:'assets/c71_5g_black.png'},{color:'Verde',photo:'assets/c71_5g_green.png'}]},
-{name:'realme C100i',cat:'4g',net:'4G',price:1899.90,mem:'4GB + 256GB',colors:['Roxo','Cinza'],tags:['Bateria de 7000mAh','Processador Octa-core','Câmera de 50MP com IA','Tela 6,8” 120Hz'],photo:'assets/c100i_purple.png',variants:[{color:'Roxo',photo:'assets/c100i_purple.png'},{color:'Cinza',photo:'assets/c100i_gray.png'}],versions:[{label:'4GB + 128GB',mem:'4GB + 128GB',price:1749.90},{label:'4GB + 256GB',mem:'4GB + 256GB',price:1899.90}]},
+{name:'realme C100i',cat:'4g',net:'4G',price:1749.90,mem:'4GB + 128GB',colors:['Roxo','Cinza'],tags:['Bateria de 7000mAh','Processador Octa-core','Câmera de 50MP com IA','Tela 6,8” 120Hz'],photo:'assets/c100i_purple.png',variants:[{color:'Roxo',photo:'assets/c100i_purple.png'},{color:'Cinza',photo:'assets/c100i_gray.png'}],versions:[{label:'4GB + 128GB',mem:'4GB + 128GB',price:1749.90},{label:'4GB + 256GB',mem:'4GB + 256GB',price:1899.90}]},
 {name:'realme C85 Pro',cat:'4g',net:'4G',price:2599.90,mem:'8GB + 256GB',colors:['Roxo','Verde'],tags:['Bateria de 7000mAh + 45W⚡','Processador Snapdragon 685','Câmera de 50MP com IA','Tela AMOLED 6,67” 120Hz'],photo:'assets/c85pro_purple.png',variants:[{color:'Roxo',photo:'assets/c85pro_purple.png'},{color:'Verde',photo:'assets/c85pro_green.png'}]},
 {name:'realme C85 NFC',cat:'4g',net:'4G',price:2399.90,mem:'8GB + 256GB',colors:['Azul Kingfisher','Preto Swan'],tags:['Bateria de 7000mAh + 45W⚡','Processador Octa-core','Câmera de 50MP com IA','Tela Ultra Brilhante 6,67” 120Hz'],photo:'assets/c85_blue.png',variants:[{color:'Azul Kingfisher',photo:'assets/c85_blue.png'},{color:'Preto Swan',photo:'assets/c85_black.png'}]},
 {name:'realme C75',cat:'4g',net:'4G',price:2119.90,mem:'8GB + 256GB',colors:['Preto Obsidiana','Dourado'],tags:['Bateria de 5828mAh + 45W⚡','Processador Helio G92 Max','Câmera de 50MP com IA','Tela FHD 6,72” 90Hz'],photo:'assets/c75_black.png',variants:[{color:'Preto Obsidiana',photo:'assets/c75_black.png'},{color:'Dourado',photo:'assets/c75_gold.png'}]},
@@ -99,54 +237,74 @@ const products=[
 {name:'realme Note 70',cat:'4g',net:'4G',price:1439.90,mem:'4GB + 256GB',colors:['Dourado','Preto'],tags:['Bateria de 6300mAh','Processador Octa-core','Câmera de 50MP com IA','Tela 6,74” 90Hz'],photo:'assets/note70_gold.png',variants:[{color:'Dourado',photo:'assets/note70_gold.png'},{color:'Preto',photo:'assets/note70_black.png'}],versions:[{label:'4GB + 256GB',mem:'4GB + 256GB',price:1439.90},{label:'8GB + 256GB',mem:'8GB + 256GB',price:1549.90}]}
 ];
 const colorMap={Preto:'#1a1a1a',Branco:'#f2f2f2',Roxo:'#8b63c7',Verde:'#5d8f73',Azul:'#4d86d9',Dourado:'#d9bd76',Cinza:'#8e8e8e','Pearl White':'#f4f3ed','Suede Grey':'#777','Preto Obsidian':'#232833','Roxo Lightning':'#cdb7ff','Roxo Escuro':'#3a315f','Preto Obsidiana':'#23242b','Azul Kingfisher':'#8fb8ff','Preto Swan':'#3b352f','Cisne Branco':'#ececec','Forest Owl':'#1b4d45'};
+
 function br(v){return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'}).replace('R$','R$ ')}
 const productMap = {};
 function safeId(i){return `prod-img-${i}`}
 
-function colorButtons(p,i){
-  if(!p.variants || !p.variants.length) return '';
-  return `<div class="color-buttons" aria-label="Escolher cor">${p.variants.map((v,idx)=>`<button type="button" data-group="${safeId(i)}" class="color-btn ${idx===0?'active':''}" onclick="selectColor(${i}, '${v.color.replace(/'/g,"&#39;")}', '${v.photo}', this)">${v.color}</button>`).join('')}</div>`;
-}
 function versionButtons(p,i,compact=false){
   if(!p.versions || !p.versions.length) return '';
-  if(compact){ return `<div class=\"version-buttons compact\">${p.versions.map((v,idx)=>`<button type=\"button\" data-vgroup=\"${safeId(i)}\" class=\"version-btn compact ${idx===0?'active':''}\" onclick=\"selectVersion(${i}, '${v.label}', '${v.mem}', ${v.price}, this)\">${v.label}</button>`).join('')}</div>`;}
-  return `<div class="version-wrap"><div class="version-label">Escolha a versão:</div><div class="version-buttons">${p.versions.map((v,idx)=>`<button type="button" data-vgroup="${safeId(i)}" class="version-btn ${idx===0?'active':''}" onclick="selectVersion(${i}, '${v.label}', '${v.mem}', ${v.price}, this)">${v.label}</button>`).join('')}</div></div>`;
+  return `<div class="version-buttons compact">${p.versions.map((v,idx)=>`<button type="button" data-vgroup="${safeId(i)}" class="version-btn compact ${idx===0?'active':''}" onclick="selectVersion(${i}, '${v.label}', '${v.mem}', ${v.price}, this)">${v.label}</button>`).join('')}</div>`;
 }
-function selectColor(i, color, photo, btn){
-  const image = document.getElementById(safeId(i));
-  if(image){ image.style.opacity='0'; setTimeout(()=>{image.src = photo; image.onload=()=>{image.style.opacity='1'};},120); }
-  const wrap = btn.closest('.color-buttons');
-  if(wrap){ wrap.querySelectorAll('.color-btn').forEach(b=>b.classList.remove('active')); }
-  btn.classList.add('active');
-}
+
 function selectVersion(i, label, mem, price, btn){
   const card=document.getElementById('card-'+i); if(!card) return;
   const memEl=card.querySelector('.mem-chip'); if(memEl) memEl.textContent=mem;
   const priceEl=card.querySelector('.price strong'); if(priceEl) priceEl.textContent=br(price);
-  const wa=card.querySelector('.wa'); const p=productMap[i]; if(wa && p){ wa.href='https://www.payjoy.com/br/pfsh-valueprop?click_source=payjoysite'; }
   const wrap=btn.closest('.version-buttons'); if(wrap){ wrap.querySelectorAll('.version-btn').forEach(b=>b.classList.remove('active')); }
   btn.classList.add('active');
 }
-function normalizeName(p){
- return String(p.name||'').toLowerCase().replace('5g','').replace('nfc','').replace(/\s+/g,' ').trim();
-}
+
+function normalizeName(p){ return String(p.name||'').toLowerCase().replace('5g','').replace('nfc','').replace(/\s+/g,' ').trim(); }
 function badgeMeta(p){
- const n=normalizeName(p);
- const labels=[];
- const has=(arr)=>arr.includes(n);
+ const n=normalizeName(p); const labels=[]; const has=(arr)=>arr.includes(n);
  if(has(['realme c85','realme c71','realme c75','realme note 70','realme note 60x'])) labels.push({label:'Mais vendido', key:'mais-vendidos'});
- if(has(['realme c85','realme c75','realme c71','realme note 70'])) labels.push({label:'Nossa recomendação', key:'mais-procurados'});
+ if(has(['realme c75','realme c85','realme 14','realme note 70'])) labels.push({label:'Mais procurado', key:'mais-procurados'});
  if(has(['realme c85','realme c75','realme c71','realme c100i','realme note 70','realme note 60x'])) labels.push({label:'Custo-benefício', key:'custo-beneficio'});
  if(has(['realme c85 pro','realme c85','realme c71','realme 14','realme 14 pro+','realme note 70','realme note 60x'])) labels.push({label:'Alta resistência', key:'alta-resistencia'});
  if(has(['realme c85 pro','realme c85','realme c100i','realme c71','realme note 70','realme 14','realme 14 pro+','realme 14t','realme c75'])) labels.push({label:'Maior bateria', key:'maior-bateria'});
  if(has(['realme 14 pro+','realme 12 pro+','realme 14','realme 13','realme c85 pro','realme 14t'])) labels.push({label:'Câmeras premium', key:'cameras-premium'});
  return labels;
 }
-function specList(p){
- const specs=(p.tags||[]).slice(0,4);
- const seal='';
- return seal + `<div class="spec-list">${specs.map((t)=>`<div class="spec-item"><span class="spec-ico">✦</span><span>${t}</span></div>`).join('')}</div>`;
+
+/* NOVO TEMPLATE DO CARD */
+function card(p, i) {
+  productMap[i] = p;
+  const metas = badgeMeta(p);
+  const primaryBadge = metas.length > 0 ? metas[0].label : 'Destaque';
+  const dotsHtml = p.colors.map(c => `<span title="${c}" class="color-dot" style="background:${colorMap[c] || '#888'}"></span>`).join('');
+  let displayPrice = p.price;
+  if (p.versions && p.versions.length > 0) { displayPrice = p.versions[0].price; }
+
+  return `
+  <article id="card-${i}" class="product ${p.cat === 'premium' ? 'premium' : ''}">
+    <div class="product-header">
+      <div class="badge-top-left"><span class="pin-badge">${primaryBadge}</span></div>
+      <span class="badge-top-right">${p.net}</span>
+      <img id="${safeId(i)}" src="${p.photo}" loading="lazy" alt="${p.name}" onerror="this.style.display='none'">
+    </div>
+    <div class="product-body">
+      <div class="brand-title">Realme</div>
+      <h3 class="product-name">${p.name}</h3>
+      <div class="chips mem-switch" style="margin-bottom:12px;">
+        ${p.versions && p.versions.length ? versionButtons(p, i, true) : `<span class="storage-chip mem-chip">${p.mem}</span>`}
+      </div>
+      <div class="color-dots-wrap">
+        ${dotsHtml}
+        <span class="color-label">(${p.colors.length} ${p.colors.length > 1 ? 'cores' : 'cor'})</span>
+      </div>
+      <div class="price-block">
+        <div class="price-label">A partir de</div>
+        <div class="main-price price"><strong style="font-size:inherit; color:inherit; font-weight:inherit; text-shadow:none; letter-spacing:inherit; display:inline;">${br(displayPrice)}</strong></div>
+        <div class="boleto-tag">💳 Até <strong>18x no BOLETO</strong></div>
+      </div>
+      <button type="button" class="btn-details" onclick="openDetailsModal(${i})">
+        🔍 Ver detalhes
+      </button>
+    </div>
+  </article>`;
 }
+
 let currentSeal='all';
 const filterOrder={
  'mais-vendidos':['realme c85','realme c71','realme c75','realme note 70','realme note 60x'],
@@ -157,48 +315,9 @@ const filterOrder={
  'cameras-premium':['realme 14 pro+','realme 12 pro+','realme 14','realme 13','realme c85 pro','realme 14t']
 };
 function normNameStr(x){return String(x||'').toLowerCase().replace(/\b5g\b/g,'').replace(/\bnfc\b/g,'').replace(/\s+/g,' ').trim();}
-
-function productRankForFilter(p){
- const order=(filterOrder[currentSeal]||[]).map(normNameStr);
- const name=normNameStr(p.name);
- const idx=order.indexOf(name);
- return idx===-1?999:idx;
-}
-
-const soldOrder=['realme c85','realme c71','realme c75','realme note 70','realme note 60x'];
-const soughtOrder=['realme c75','realme c85','realme 14','realme note 70'];
-function tickerData(p){
- const n=normNameStr(p.name);
- let idx=soldOrder.indexOf(n);
- if(idx!==-1){
-   let sim=3490-(125*idx);
-   let buy=2781-(125*idx);
-   if(n==='realme note 70') buy += 180;
-   if(n==='realme note 60x') buy += 260;
-   return {sim, buy};
- }
- idx=soughtOrder.indexOf(n);
- if(idx!==-1){
-   let sim=2990-(125*idx);
-   let buy=2281-(125*idx);
-   if(n==='realme note 70') buy += 160;
-   return {sim, buy};
- }
- return null;
-}
-function activityTicker(p){
- const data=tickerData(p); if(!data) return '';
- return `<div class="activity-ticker" data-sim="${data.sim}" data-buy="${data.buy}" data-state="sim"><div class="msg"><span class="emoji">🔥</span><span><span class="num">${data.sim} pessoas</span> simularam</span></div></div>`;
-}
-function visibleBadges(metas){
- if(!metas||!metas.length) return '';
- let show=currentSeal==='all'?metas.slice(0,2):metas.filter(m=>m.key===currentSeal);
- if(!show.length) show=metas.slice(0,1);
- const extra=currentSeal==='all'&&metas.length>2?`<div class="pin-badge more-badge">+${metas.length-2} destaques</div>`:'';
- return `<div class="badge-row">${show.map(m=>`<div class="pin-badge">${m.label}</div>`).join('')}${extra}</div>`;
-}
-function card(p,i){productMap[i]=p; const metas=badgeMeta(p); return `<article id="card-${i}" class="product ${p.cat==='premium'?'premium':''}"><div class="gallery"><span class="cat">${p.net}</span><img id="${safeId(i)}" src="${p.photo}" loading="lazy" alt="${p.name}" onerror="this.style.display='none';this.parentElement.style.background='radial-gradient(circle,#3b2e16,#080808 60%)'"></div>${activityTicker(p)}<div class="info">${visibleBadges(metas)}<h3>${p.name}</h3><div class="subtitle">Versão disponível</div><div class="chips mem-switch">${p.versions&&p.versions.length?versionButtons(p,i,true):`<span class=\"chip mem-chip\">${p.mem}</span>`}</div><div class="colors">Cores: ${p.colors.map(c=>`<span title="${c}" class="dot" style="background:${colorMap[c]||'#999'}"></span>`).join('')} <span>${p.colors.join(' / ')}</span></div>${colorButtons(p,i)}${specList(p)}<div class="price"><span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase">Preço da versão</span><strong>${br(p.price)}</strong></div><div class="boleto">Até <span>18x</span> no boleto</div>${p.entry?`<div class="entry-badge">${p.entry}<br><small>Sujeito à análise de crédito.</small></div>`:``}<a class="wa sim-trigger" target="_blank" href="https://www.payjoy.com/br/pfsh-valueprop?click_source=payjoysite">💳 Simular agora →</a></div></article>`}
+function productRankForFilter(p){ const order=(filterOrder[currentSeal]||[]).map(normNameStr); const name=normNameStr(p.name); const idx=order.indexOf(name); return idx===-1?999:idx; }
 function matchesSeal(p){ if(currentSeal==='all') return true; const ms=badgeMeta(p)||[]; return ms.some(m=>m.key===currentSeal); }
+
 function renderCatalog(){
   const premium=document.getElementById('premium-products');
   const fiveg=document.getElementById('fiveg-products');
@@ -210,84 +329,94 @@ function renderCatalog(){
   const desc=mainSection.querySelector('p');
 
   if(currentSeal==='all'){
-    mainSection.style.display='';
-    fivegSection.style.display='';
-    fourgSection.style.display='';
-    title.innerHTML='👑 Destaques Premium';
-    desc.textContent='Modelos com maior percepção de valor para abrir o catálogo.';
+    mainSection.style.display=''; fivegSection.style.display=''; fourgSection.style.display='';
+    title.innerHTML='👑 Destaques Premium'; desc.textContent='Modelos com maior percepção de valor para abrir o catálogo.';
     premium.innerHTML=products.filter(p=>p.cat==='premium').map((p,i)=>card(p,i)).join('');
     fiveg.innerHTML=products.filter(p=>p.net==='5G'&&p.cat!=='premium').map((p,i)=>card(p,i+100)).join('');
     fourg.innerHTML=products.filter(p=>p.net==='4G').map((p,i)=>card(p,i+200)).join('');
     return;
   }
-
-  mainSection.style.display='';
-  fivegSection.style.display='none';
-  fourgSection.style.display='none';
-
+  mainSection.style.display=''; fivegSection.style.display='none'; fourgSection.style.display='none';
   const activeBtn=document.querySelector(`.seal-filter[data-seal="${currentSeal}"]`);
   const filterName=activeBtn ? activeBtn.textContent.trim() : 'Filtro selecionado';
-  title.innerHTML='✨ '+filterName;
-  desc.textContent='Aparelhos agrupados conforme a ordem definida pela loja.';
-
+  title.innerHTML='✨ '+filterName; desc.textContent='Aparelhos agrupados conforme a ordem definida pela loja.';
   const sorted=products.filter(p=>matchesSeal(p)).sort((a,b)=>productRankForFilter(a)-productRankForFilter(b));
-
   premium.innerHTML=sorted.map((p,i)=>card(p,i+500)).join('');
 }
 function bindSealFilters(){ document.querySelectorAll('.seal-filter').forEach(a=>a.addEventListener('click',e=>{e.preventDefault(); currentSeal=a.dataset.seal; document.querySelectorAll('.seal-filter').forEach(x=>x.classList.remove('active')); a.classList.add('active'); renderCatalog();})); }
-document.getElementById('premium-products').innerHTML=products.filter(p=>p.cat==='premium').map((p,i)=>card(p,i)).join('');
-document.getElementById('fiveg-products').innerHTML=products.filter(p=>p.net==='5G'&&p.cat!=='premium').map((p,i)=>card(p,i+100)).join('');
-document.getElementById('fourg-products').innerHTML=products.filter(p=>p.net==='4G' && matchesSeal(p)).map((p,i)=>card(p,i+200)).join('');
-bindSealFilters();
-renderCatalog();
 
-function bindSimulationPopup(){
- const modal=document.getElementById('simModal');
- if(!modal) return;
- const start=document.getElementById('simStart');
- const closeBtn=modal.querySelector('.sim-close');
- let currentHref='https://www.payjoy.com/br/pfsh-valueprop?click_source=payjoysite';
- document.addEventListener('click',function(e){
-   const trigger=e.target.closest('.sim-trigger');
-   if(!trigger) return;
-   e.preventDefault();
-   currentHref=trigger.getAttribute('href')||currentHref;
-   start.setAttribute('href',currentHref);
-   modal.classList.add('active');
-   modal.setAttribute('aria-hidden','false');
- });
- function closeModal(){
-   modal.classList.remove('active');
-   modal.setAttribute('aria-hidden','true');
- }
- closeBtn.addEventListener('click',closeModal);
- modal.addEventListener('click',function(e){ if(e.target===modal) closeModal(); });
- document.addEventListener('keydown',function(e){ if(e.key==='Escape' && modal.classList.contains('active')) closeModal(); });
-}
-document.addEventListener('DOMContentLoaded', bindSimulationPopup);
+document.addEventListener('DOMContentLoaded', () => {
+    bindSealFilters();
+    renderCatalog();
+});
 
-function bindActivityTickers(){setInterval(()=>{document.querySelectorAll('.activity-ticker').forEach(el=>{const state=el.getAttribute('data-state')||'sim'; const sim=el.getAttribute('data-sim'); const buy=el.getAttribute('data-buy'); el.classList.add('fade-out'); setTimeout(()=>{ if(state==='sim'){ el.innerHTML=`<div class="msg"><span class="emoji">🔥</span><span><span class="num">${buy} pessoas</span> compraram</span></div>`; el.setAttribute('data-state','buy'); } else { el.innerHTML=`<div class="msg"><span class="emoji">🔥</span><span><span class="num">${sim} pessoas</span> simularam</span></div>`; el.setAttribute('data-state','sim'); } el.classList.remove('fade-out'); },240);});},3200);} document.addEventListener('DOMContentLoaded', bindActivityTickers);
-</script>
-
-<div class="sim-modal" id="simModal" aria-hidden="true">
-  <div class="sim-box" role="dialog" aria-modal="true" aria-labelledby="simTitle">
-    <button class="sim-close" type="button" aria-label="Fechar popup">×</button>
-    <div class="sim-content">
-      <div class="sim-icon" aria-hidden="true">
-        <svg viewBox="0 0 64 64" fill="none">
-          <path d="M32 10a22 22 0 1 0 0 44 22 22 0 0 0 0-44Z" stroke="currentColor" stroke-width="5"/>
-          <path d="M32 20v13l9 6" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M8 22h8M6 32h8M8 42h8" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="sim-text">
-        <h3 id="simTitle">Seja aprovado em poucos minutos. Finalize sua compra em nossa loja.</h3>
-        <p class="green">Só precisa levar um documento com foto</p>
-        <a class="sim-start" id="simStart" href="https://www.payjoy.com/br/pfsh-valueprop?click_source=payjoysite" target="_blank" rel="noopener">Começar agora</a>
-        <p class="sim-note">*Disponibilidade e preços podem variar por loja.</p>
-      </div>
+/* LÓGICA DO MODAL APPLE DE DETALHES */
+function openDetailsModal(i) {
+  const p = productMap[i];
+  if(!p) return;
+  const modal = document.getElementById('detailsModal');
+  const content = document.getElementById('detailsContent');
+  
+  const specsHtml = (p.tags || []).map(t => `<div class="det-spec-card"><span class="ico">✦</span><span>${t}</span></div>`).join('');
+  let displayPrice = p.price;
+  let versionsHtml = '';
+  
+  if (p.versions && p.versions.length > 0) {
+      displayPrice = p.versions[0].price;
+      versionsHtml = `<div class="det-specs-title">Versões Disponíveis:</div>
+                      <div class="det-pills" style="margin-bottom:15px;">
+                      ${p.versions.map(v => `<span class="det-pill">${v.label} - ${br(v.price)}</span>`).join('')}
+                      </div>`;
+  }
+  
+  content.innerHTML = `
+    <div class="det-img-wrapper">
+      <img src="${p.photo}" alt="${p.name}" onerror="this.style.display='none'">
     </div>
-  </div>
-</div>
-</body></html>
-<style>.hero{padding:12px!important}.filters{position:sticky;top:0;background:#fff;z-index:10}</style>
+    <div class="det-title">${p.name}</div>
+    <div class="det-tagline">${p.net} • Conectividade & Performance</div>
+    
+    <div class="det-pills">
+      <span class="det-pill">💾 Armazenamento Base: ${p.mem}</span>
+      <span class="det-pill">🎨 Cores: ${p.colors.join(' / ')}</span>
+    </div>
+
+    ${versionsHtml}
+
+    <div class="det-specs-title">Especificações Técnicas:</div>
+    <div class="det-specs-grid">
+      ${specsHtml}
+    </div>
+
+    <div class="det-price-box">
+      <div class="det-price-lbl">A partir de</div>
+      <div class="det-price-val">${br(displayPrice)}</div>
+      <div class="boleto-tag" style="margin: 8px 0;">💳 Até <span>18x</span> no BOLETO</div>
+      ${p.entry ? `<div class="entry-badge" style="margin-top:10px">${p.entry}<br><small>Sujeito à análise de crédito.</small></div>` : ''}
+    </div>
+
+    <a class="wa" target="_blank" href="https://www.payjoy.com/br/pfsh-valueprop?click_source=payjoysite" style="margin-top:18px;">
+      💳 Simular Aprovação no Boleto
+    </a>
+  `;
+  
+  modal.classList.add('active');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDetailsModal() {
+  const modal = document.getElementById('detailsModal');
+  if(modal) {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeDetailsModal();
+});
+</script>
+</body>
+</html>
