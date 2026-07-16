@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Catálogo Realme — Até 18x no Boleto</title>
+<title>Catálogo Realme Vila Velha — Até 18x no Boleto</title>
 <style>
 /* =========================================================
    1. VARIÁVEIS E BASE
@@ -18,27 +18,19 @@ a{color:inherit}
 /* =========================================================
    2. HEADER E HERO SECTION
 ========================================================= */
-.hero{min-height:18vh;display:grid;align-items:center;position:relative;overflow:hidden;border-bottom:1px solid #2b2415;padding:12px!important}
+.hero{min-height:35vh;display:grid;align-items:center;position:relative;overflow:hidden;border-bottom:1px solid #2b2415;padding:32px 0!important}
 .hero:before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 75% 25%,rgba(245,199,91,.22),transparent 28%),linear-gradient(120deg,rgba(255,255,255,.06),transparent 35%);filter:blur(1px)}
 .hero-grid{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
-.brand{display:inline-flex;align-items:center;gap:12px;font-weight:900;font-size:30px;letter-spacing:-1px}
-.brand b{background:var(--gold);color:#000;border-radius:5px;padding:2px 7px}
-.eyebrow{margin-top:26px;color:var(--gold);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:13px}
-.hero h1{font-size:clamp(42px,7vw,86px);line-height:.92;margin:14px 0 18px;letter-spacing:-4px}
-.hero p{display:none}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}
-.btn{border:1px solid rgba(245,199,91,.55);background:linear-gradient(135deg,var(--gold),var(--gold2));color:#070707;text-decoration:none;font-weight:900;border-radius:999px;padding:15px 22px;box-shadow:0 18px 50px rgba(245,199,91,.17)}
-.btn.dark{background:#111;color:#fff;border-color:#3c321e}
-.hero-card{background:linear-gradient(160deg,#181818,#080808);border:1px solid #3a2e16;border-radius:28px;padding:22px;box-shadow:0 30px 90px rgba(0,0,0,.55);position:relative}
-.phone-stack{height:390px;border-radius:22px;background:radial-gradient(circle at center,rgba(245,199,91,.22),transparent 48%),linear-gradient(135deg,#050505,#24210f);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
-.phone-stack img{width:100%;height:100%;object-fit:cover;filter:none}
-.phone-stack.kiosk:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.45))}
-.stack-overlay{position:absolute;left:18px;right:18px;bottom:16px;z-index:2;background:rgba(0,0,0,.38);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:12px 14px}
-.stack-overlay span{display:block;font-weight:900;color:#fff;font-size:18px}
-.stack-overlay small{display:block;color:#e7e7e7;margin-top:4px;font-size:12px;line-height:1.35}
-.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
-.badge{background:#0d0d0d;border:1px solid #2c2518;border-radius:15px;padding:12px;text-align:center;color:#ddd;font-size:13px}
-.badge strong{display:block;color:var(--gold);font-size:18px}
+.brand{display:inline-flex;align-items:center;gap:12px;font-weight:900;font-size:22px;letter-spacing:0.08em;color:var(--gold);text-transform:uppercase}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(245,199,91,.25),rgba(245,199,91,.08));border:1px solid rgba(245,199,91,.5);color:var(--gold);font-weight:900;font-size:14px;padding:6px 14px;border-radius:999px;margin-top:12px}
+.hero h1{font-size:clamp(38px,6vw,72px);line-height:0.95;margin:12px 0 6px;letter-spacing:-2px;font-weight:1000}
+.hero-price{font-size:clamp(34px,5vw,52px);font-weight:1000;color:var(--gold);margin:6px 0 2px;line-height:1}
+.hero-sub{font-size:18px;font-weight:800;color:#fff;margin-bottom:10px}
+
+.hero-card{background:linear-gradient(160deg,#181818,#080808);border:1px solid #3a2e16;border-radius:28px;padding:20px;box-shadow:0 30px 90px rgba(0,0,0,.55);position:relative}
+.phone-stack{height:380px;border-radius:22px;background:radial-gradient(circle at center,rgba(245,199,91,.25),transparent 55%),linear-gradient(135deg,#050505,#24210f);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.phone-stack img{max-width:85%;max-height:85%;object-fit:contain;filter:drop-shadow(0 20px 30px rgba(0,0,0,.7));transition:transform .3s ease}
+.hero-card:hover .phone-stack img{transform:scale(1.04)}
 
 /* =========================================================
    3. SEÇÕES E BANNERS
@@ -50,13 +42,9 @@ a{color:inherit}
 .tabs{display:flex;gap:10px;flex-wrap:wrap}
 .tab{background:#111;border:1px solid #2a2416;color:#eee;border-radius:999px;padding:10px 14px;font-weight:800;text-decoration:none}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.banner-section{padding:26px 0 10px!important}
-.conversion-banner{display:block;overflow:hidden;border-radius:26px;border:1px solid rgba(245,197,107,.34);box-shadow:0 22px 70px rgba(0,0,0,.48),0 0 0 1px rgba(255,255,255,.04);background:#050505;position:relative}
-.conversion-banner:after{content:"Clique para simular no boleto";position:absolute;right:18px;bottom:14px;background:rgba(0,0,0,.72);color:#ffdf9a;border:1px solid rgba(245,197,107,.42);border-radius:999px;padding:9px 13px;font-size:12px;font-weight:900;letter-spacing:.02em;backdrop-filter:blur(8px)}
-.conversion-banner img{width:100%;display:block;object-fit:cover}
 
 /* =========================================================
-   4. NOVO DESIGN DOS CARDS DE PRODUTOS (UX Otimizado)
+   4. DESIGN DOS CARDS DE PRODUTOS
 ========================================================= */
 .product {
   background: linear-gradient(180deg, #141414, #080808);
@@ -67,6 +55,7 @@ a{color:inherit}
   flex-direction: column;
   justify-content: space-between;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
 }
 .product.premium{border-color:rgba(245,199,91,.7);box-shadow:0 0 0 1px rgba(245,199,91,.08),0 28px 80px rgba(245,199,91,.08)}
 .product:hover {
@@ -75,21 +64,41 @@ a{color:inherit}
 }
 .product-header {
   position: relative;
-  height: 240px;
+  height: 250px;
   background: radial-gradient(circle at 50% 40%, rgba(245, 199, 91, 0.12), transparent 70%), #0a0a0a;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  padding: 16px 16px 10px;
 }
 .product-header img {
   max-width: 90%;
-  max-height: 90%;
+  max-height: 75%;
   object-fit: contain;
   filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.5));
   transition: transform 0.3s ease;
 }
 .product:hover .product-header img { transform: scale(1.05); }
+
+.discreet-btn {
+  margin-top: auto;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 5px 14px;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+.product:hover .discreet-btn {
+  color: var(--gold);
+  border-color: rgba(245, 199, 91, 0.3);
+  background: rgba(245, 199, 91, 0.08);
+}
 
 .badge-top-left { position: absolute; top: 12px; left: 12px; z-index: 2; }
 .badge-top-right {
@@ -101,7 +110,7 @@ a{color:inherit}
 .pin-badge{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(245,199,91,.35);background:linear-gradient(135deg,rgba(245,199,91,.22),rgba(245,199,91,.08));border-radius:999px;padding:8px 11px;color:#fff;font-size:11px;font-weight:1000;box-shadow:0 8px 18px rgba(245,199,91,.16);letter-spacing:.02em}
 .pin-badge:before{content:"★";color:var(--gold);font-size:12px;line-height:1}
 
-.product-body { padding: 18px 18px 10px 18px; flex-grow: 1; display:flex; flex-direction:column; }
+.product-body { padding: 18px; flex-grow: 1; display:flex; flex-direction:column; }
 .brand-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #f5c75b; font-weight: 800; margin-bottom: 2px; }
 .product-name { font-size: 20px; font-weight: 900; color: #fff; margin: 0 0 12px 0; line-height: 1.2; }
 .storage-chip {
@@ -112,12 +121,6 @@ a{color:inherit}
 .color-dot { width: 14px; height: 14px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.4); box-shadow: 0 2px 4px rgba(0,0,0,0.4); }
 .color-label { font-size: 12px; color: #a0a0a0; margin-left: 4px; }
 
-/* Botões de Cor (agora usados também dentro do Modal) */
-.color-buttons{display:flex;gap:8px;flex-wrap:wrap}
-.color-btn{background:#101010;color:#ddd;border:1px solid #332a18;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:800;cursor:pointer;transition:.2s}
-.color-btn:hover,.color-btn.active{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#080808;border-color:transparent;box-shadow:0 8px 22px rgba(245,197,107,.18);transform:translateY(-1px)}
-
-/* Bloco de Preço & CTA do Card */
 .price-block {
   background: rgba(245, 199, 91, 0.05); border: 1px solid rgba(245, 199, 91, 0.2);
   border-radius: 14px; padding: 12px; text-align: center; margin-top: auto;
@@ -126,23 +129,13 @@ a{color:inherit}
 .main-price { font-size: 26px; font-weight: 1000; color: #f5c75b; line-height: 1.1; margin: 2px 0; }
 .boleto-tag { font-size: 13px; font-weight: 800; color: #ffffff; display: flex; align-items: center; justify-content: center; gap: 5px; margin-top: 4px; }
 
-/* Botão "Ver Detalhes" */
-.btn-details {
-  display: block; width: 100%; text-align: center; background: linear-gradient(135deg, #f5c75b, #d79d2e);
-  color: #000; font-weight: 900; font-size: 14px; padding: 12px; border-radius: 12px; border:none; cursor:pointer;
-  text-decoration: none; margin-top: 14px; box-shadow: 0 6px 16px rgba(245, 199, 91, 0.2);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.btn-details:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(245, 199, 91, 0.35); }
-
-/* Seletor de Versão (Trazido para o Card e Modal) */
 .version-buttons.compact{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
 .version-btn.compact{padding:6px 10px;border-radius:8px;font-size:12px;line-height:1;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:#e0e0e0;font-weight:700;cursor:pointer;transition:.2s}
 .version-btn.compact:hover{border-color:rgba(245,199,91,.38)}
 .version-btn.compact.active{background:rgba(245,199,91,.15);color:var(--gold);border-color:var(--gold)}
 
 /* =========================================================
-   5. POP-UP / MODAL APPLE STORE (Detalhes e Boleto)
+   5. POP-UP / MODAL DETALHES
 ========================================================= */
 .details-modal { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 20px; }
 .details-modal.active { display: flex; }
@@ -163,43 +156,82 @@ a{color:inherit}
 .det-price-box { background: linear-gradient(135deg, rgba(245, 199, 91, 0.12), rgba(245, 199, 91, 0.03)); border: 1px solid rgba(245, 199, 91, 0.3); border-radius: 20px; padding: 18px; text-align: center; margin-top: 15px; }
 .det-price-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #bbb; }
 .det-price-val { font-size: 32px; font-weight: 1000; color: var(--gold); margin: 4px 0 10px; }
-
-/* Botão WhatsApp Modal */
+.color-buttons{display:flex;gap:8px;flex-wrap:wrap}
+.color-btn{background:#101010;color:#ddd;border:1px solid #332a18;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:800;cursor:pointer;transition:.2s}
+.color-btn:hover,.color-btn.active{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#080808;border-color:transparent;box-shadow:0 8px 22px rgba(245,197,107,.18);transform:translateY(-1px)}
 .wa{display:block;text-align:center;text-decoration:none;background:linear-gradient(135deg,var(--ig1),var(--ig2) 60%,var(--ig3));color:#fff;font-weight:900;border-radius:14px;padding:14px;margin-top:10px;box-shadow:0 14px 26px rgba(214,36,159,.22);letter-spacing:.02em;transition:transform .18s ease, box-shadow .18s ease}
 .wa:hover{transform:translateY(-1px);box-shadow:0 18px 32px rgba(214,36,159,.28)}
 
 /* =========================================================
-   6. COMPONENTES GERAIS (Footer, Trust, Selos)
+   6. COMPONENTES GERAIS
 ========================================================= */
 .seal-filter.active{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#080808;border-color:transparent}
-.seal-ip69{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(245,199,91,.42);background:linear-gradient(135deg,rgba(245,199,91,.24),rgba(245,199,91,.08));border-radius:999px;padding:9px 12px;color:#fff;font-size:12px;font-weight:1000;margin:4px 0 12px;box-shadow:0 10px 24px rgba(245,199,91,.16)}
-.seal-ip69 b{color:var(--gold);font-size:13px}
 .entry-badge{margin:8px 0;padding:8px;border-radius:10px;background:#f5c75b;color:#111;font-weight:700;font-size:13px}.entry-badge small{font-weight:500;font-size:11px}
-.note{background:linear-gradient(135deg,#111,#090909);border:1px solid #2b2416;border-radius:24px;padding:22px;color:#ddd}
-.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.trust .note{text-align:center}
 .floatwa{position:fixed;right:18px;bottom:18px;z-index:20;background:var(--green);color:#061209;font-weight:1000;text-decoration:none;border-radius:999px;padding:14px 18px;box-shadow:0 16px 40px rgba(37,211,102,.35)}
 footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
 .small{font-size:12px;color:#888;line-height:1.45}
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.phone-stack{height:320px}.grid{grid-template-columns:1fr 1fr}.trust{grid-template-columns:1fr 1fr}.section-head{display:block}.hero h1{letter-spacing:-2px}}
-@media(max-width:560px){.grid,.trust{grid-template-columns:1fr}.hero{min-height:auto;padding:18px 0}.badges{grid-template-columns:1fr}.floatwa{left:18px;text-align:center}.brand{font-size:24px}}
+
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.phone-stack{height:320px}.grid{grid-template-columns:1fr 1fr}.section-head{display:block}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.hero{padding:24px 0!important}.floatwa{left:18px;text-align:center}.brand{font-size:18px}}
 </style>
 </head>
 <body>
 <a class="floatwa" href="https://www.payjoy.com/br/pfsh-valueprop?click_source=payjoysite" target="_blank">Chamar no Instagram</a>
-<header class="hero"><div class="wrap hero-grid"><div><div class="brand">realme <b>store</b></div><div class="eyebrow">Catálogo especial boleto</div><h1>Seu novo Realme em até 18x no boleto.</h1><p>Escolha seu Realme com mais facilidade: compare modelos, cores e versões e solicite sua simulação no boleto direto pelo Instagram. Atendimento rápido, retirada em loja física e suporte para encontrar a melhor opção para você.</p><div class="hero-actions"><a class="btn" href="#destaques">Ver aparelhos</a><a class="btn dark" href="https://www.payjoy.com/br/pfsh-valueprop?click_source=payjoysite" target="_blank">Chamar no Instagram</a></div></div><div class="hero-card"><div class="phone-stack kiosk"><img src="assets/hero-quiosque.jpg" alt="Quiosque Realme"><div class="stack-overlay"><span>Visite nosso quiosque</span><small>Atendimento presencial e retirada em loja física</small></div></div><div class="badges"><div class="badge"><strong>18x</strong>no boleto</div><div class="badge"><strong>5G</strong>opções rápidas</div><div class="badge"><strong>Loja</strong>retirada física</div></div></div></div></header>
-<main class="wrap">
-<section class="section banner-section" id="banner-c85">
-  <a class="conversion-banner" href="https://www.payjoy.com/br/pfsh-valueprop?click_source=payjoysite" target="_blank" rel="noopener">
-    <img src="assets/banner_c85.png" alt="Realme C85 novo lançamento - até 18x no boleto">
-  </a>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="brand">CATÁLOGO REALME VILA VELHA</div>
+      <div><span class="hero-badge">⭐ O MAIS VENDIDO</span></div>
+      <h1>REALME C85</h1>
+      <div class="hero-price">R$ 2.399,90</div>
+      <div class="hero-sub">Até 18x no boleto</div>
+    </div>
+    <div class="hero-card" onclick="openDetailsModal(9)" style="cursor:pointer;" title="Clique para ver detalhes do Realme C85">
+      <div class="phone-stack">
+        <img src="assets/c85_blue.png" alt="Realme C85" onerror="this.src='assets/banner_c85.png'">
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="section" style="padding-bottom: 20px;">
+  <div class="wrap" style="text-align: center;">
+    <h2 style="font-size: clamp(38px, 6vw, 58px); margin: 0; line-height: 1.05; font-weight: 1000; letter-spacing: -1px;">
+      SMARTPHONES<br><span style="color: var(--gold);">SELECIONADOS</span>
+    </h2>
+    <p style="font-size: 17px; color: #888; font-weight: 600; margin-top: 14px; letter-spacing: 0.02em;">Escolha agora.</p>
+  </div>
 </section>
 
-<section class="section"><div class="trust"><div class="note"><b>📍 Retirada em loja</b><br><span class="small">Catálogo focado para venda presencial.</span></div><div class="note"><b>💳 Até 18x no boleto</b><br><span class="small">Todos os cards destacam boleto.</span></div><div class="note"><b>📲 Instagram direto</b><br><span class="small">Botão para simulação em cada produto.</span></div><div class="note"><b>🛡️ Realme Brasil</b><br><span class="small">Garantia e suporte conforme condições da loja.</span></div></div></section>
-<section class="section" style="padding-top:10px"><div class="wrap"><div class="tabs" id="seal-tabs"><a class="tab seal-filter active" href="#" data-seal="all">Todos</a><a class="tab seal-filter" href="#" data-seal="mais-vendidos">Mais vendidos</a><a class="tab seal-filter" href="#" data-seal="mais-procurados">Mais procurados</a><a class="tab seal-filter" href="#" data-seal="custo-beneficio">Melhor custo-benefício</a><a class="tab seal-filter" href="#" data-seal="alta-resistencia">Alta resistência</a><a class="tab seal-filter" href="#" data-seal="maior-bateria">Maior bateria</a><a class="tab seal-filter" href="#" data-seal="cameras-premium">Câmeras premium</a></div></div></section><section id="destaques" class="section"><div class="section-head"><div><h2>👑 Destaques Premium</h2><p>Modelos com maior percepção de valor para abrir o catálogo.</p></div><div class="tabs"><a class="tab" href="#5g">5G</a><a class="tab" href="#4g">4G</a></div></div><div class="grid" id="premium-products"></div></section>
-<section id="5g" class="section"><div class="section-head"><div><h2>🚀 Smartphones 5G</h2><p>Modelos separados das versões 4G para não confundir o cliente.</p></div></div><div class="grid" id="fiveg-products"></div></section>
-<section id="4g" class="section"><div class="section-head"><div><h2>📱 Smartphones 4G</h2><p>Opções com ótimo custo-benefício e foco em memória, bateria e resistência.</p></div></div><div class="grid" id="fourg-products"></div></section>
-</main><footer><div class="wrap"><b>Realme Store — Catálogo Boleto</b><p class="small">Atendimento via Instagram: @realme.es.vilavelha. Página criada para compartilhamento com clientes interessados em compra no boleto.</p></div></footer>
+<section class="section" style="padding-top: 10px; padding-bottom: 40px;">
+  <div class="wrap">
+    <div class="tabs" id="seal-tabs">
+      <a class="tab seal-filter active" href="#" data-seal="all">Todos</a>
+      <a class="tab seal-filter" href="#" data-seal="mais-vendidos">Mais vendidos</a>
+      <a class="tab seal-filter" href="#" data-seal="mais-procurados">Mais procurados</a>
+      <a class="tab seal-filter" href="#" data-seal="custo-beneficio">Melhor custo-benefício</a>
+      <a class="tab seal-filter" href="#" data-seal="alta-resistencia">Alta resistência</a>
+      <a class="tab seal-filter" href="#" data-seal="maior-bateria">Maior bateria</a>
+      <a class="tab seal-filter" href="#" data-seal="cameras-premium">Câmeras premium</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <section id="destaques" class="section" style="padding-top:0"><div class="section-head"><div><h2>👑 Destaques Premium</h2><p>Modelos com maior percepção de valor para abrir o catálogo.</p></div><div class="tabs"><a class="tab" href="#5g">5G</a><a class="tab" href="#4g">4G</a></div></div><div class="grid" id="premium-products"></div></section>
+  <section id="5g" class="section"><div class="section-head"><div><h2>🚀 Smartphones 5G</h2><p>Modelos separados das versões 4G para não confundir o cliente.</p></div></div><div class="grid" id="fiveg-products"></div></section>
+  <section id="4g" class="section"><div class="section-head"><div><h2>📱 Smartphones 4G</h2><p>Opções com ótimo custo-benefício e foco em memória, bateria e resistência.</p></div></div><div class="grid" id="fourg-products"></div></section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <b>Realme Store — Catálogo Boleto</b>
+    <p class="small">Atendimento via Instagram: @realme.es.vilavelha. Página criada para compartilhamento com clientes interessados em compra no boleto.</p>
+  </div>
+</footer>
 
 <div class="details-modal" id="detailsModal" aria-hidden="true" onclick="if(event.target===this) closeDetailsModal()">
   <div class="details-box" role="dialog" aria-modal="true">
@@ -248,7 +280,7 @@ function safeId(i){return `prod-img-${i}`}
 
 function versionButtons(p,i,compact=false){
   if(!p.versions || !p.versions.length) return '';
-  return `<div class="version-buttons compact">${p.versions.map((v,idx)=>`<button type="button" data-vgroup="${safeId(i)}" class="version-btn compact ${idx===0?'active':''}" onclick="selectVersion(${i}, '${v.label}', '${v.mem}', ${v.price}, this)">${v.label}</button>`).join('')}</div>`;
+  return `<div class="version-buttons compact">${p.versions.map((v,idx)=>`<button type="button" data-vgroup="${safeId(i)}" class="version-btn compact ${idx===0?'active':''}" onclick="event.stopPropagation(); selectVersion(${i}, '${v.label}', '${v.mem}', ${v.price}, this)">${v.label}</button>`).join('')}</div>`;
 }
 
 function selectVersion(i, label, mem, price, btn){
@@ -271,7 +303,6 @@ function badgeMeta(p){
  return labels;
 }
 
-/* NOVO TEMPLATE DO CARD DA VITRINE EXTERNA */
 function card(p, i) {
   productMap[i] = p;
   const metas = badgeMeta(p);
@@ -281,11 +312,12 @@ function card(p, i) {
   if (p.versions && p.versions.length > 0) { displayPrice = p.versions[0].price; }
 
   return `
-  <article id="card-${i}" class="product ${p.cat === 'premium' ? 'premium' : ''}">
+  <article id="card-${i}" class="product ${p.cat === 'premium' ? 'premium' : ''}" onclick="openDetailsModal(${i})">
     <div class="product-header">
       <div class="badge-top-left"><span class="pin-badge">${primaryBadge}</span></div>
       <span class="badge-top-right">${p.net}</span>
       <img id="${safeId(i)}" src="${p.photo}" loading="lazy" alt="${p.name}" onerror="this.style.display='none'">
+      <span class="discreet-btn">Ver detalhes</span>
     </div>
     <div class="product-body">
       <div class="brand-title">Realme</div>
@@ -302,9 +334,6 @@ function card(p, i) {
         <div class="main-price price"><strong style="font-size:inherit; color:inherit; font-weight:inherit; text-shadow:none; letter-spacing:inherit; display:inline;">${br(displayPrice)}</strong></div>
         <div class="boleto-tag">💳 Até <strong>18x no BOLETO</strong></div>
       </div>
-      <button type="button" class="btn-details" onclick="openDetailsModal(${i})">
-        🔍 Ver detalhes
-      </button>
     </div>
   </article>`;
 }
@@ -320,7 +349,7 @@ const filterOrder={
 };
 function normNameStr(x){return String(x||'').toLowerCase().replace(/\b5g\b/g,'').replace(/\bnfc\b/g,'').replace(/\s+/g,' ').trim();}
 function productRankForFilter(p){ const order=(filterOrder[currentSeal]||[]).map(normNameStr); const name=normNameStr(p.name); const idx=order.indexOf(name); return idx===-1?999:idx; }
-function matchesSeal(p){ if(currentSeal==='all') return true; const ms=badgeMeta(p)||[]; return ms.some(m=>m.key===currentSeal); }
+function matchesSeal(p){ if(currentSeal === 'all') return true; const ms=badgeMeta(p)||[]; return ms.some(m=>m.key===currentSeal); }
 
 function renderCatalog(){
   const premium=document.getElementById('premium-products');
@@ -354,7 +383,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCatalog();
 });
 
-/* FUNÇÃO PARA TROCAR A IMAGEM E COR DENTRO DO MODAL APPLE */
 function selectModalColor(photo, btn){
   const img = document.getElementById('modal-img');
   if(img){ 
@@ -369,7 +397,8 @@ function selectModalColor(photo, btn){
   btn.classList.add('active');
 }
 
-/* LÓGICA DO MODAL APPLE DE DETALHES COM BOTÕES DE COR INTEGRADOs */
+function closeDetailsModal() { document.getElementById('detailsModal').classList.remove('active'); }
+
 function openDetailsModal(i) {
   const p = productMap[i];
   if(!p) return;
@@ -389,7 +418,6 @@ function openDetailsModal(i) {
                       </div>`;
   }
 
-  /* Gera a Interface de Cores dentro do Modal apenas se o aparelho tiver variações */
   let colorsHtml = '';
   if (p.variants && p.variants.length > 0) {
       colorsHtml = `
@@ -402,52 +430,22 @@ function openDetailsModal(i) {
   
   content.innerHTML = `
     <div class="det-img-wrapper">
-      <img id="modal-img" src="${p.photo}" alt="${p.name}" onerror="this.style.display='none'">
+      <img id="modal-img" src="${p.photo}" alt="${p.name}">
     </div>
-    <div class="det-title">${p.name}</div>
-    <div class="det-tagline">${p.net} • Conectividade & Performance</div>
-    
-    <div class="det-pills">
-      <span class="det-pill">💾 Armazenamento Base: ${p.mem}</span>
-    </div>
-
+    <h2 class="det-title">${p.name}</h2>
+    <div class="det-tagline">${p.mem}</div>
     ${colorsHtml}
     ${versionsHtml}
-
-    <div class="det-specs-title">Especificações Técnicas:</div>
-    <div class="det-specs-grid">
-      ${specsHtml}
-    </div>
-
+    <div class="det-specs-title">Destaques:</div>
+    <div class="det-specs-grid">${specsHtml}</div>
     <div class="det-price-box">
       <div class="det-price-lbl">A partir de</div>
       <div class="det-price-val">${br(displayPrice)}</div>
-      <div class="boleto-tag" style="margin: 8px 0;">💳 Até <span>18x</span> no BOLETO</div>
-      ${p.entry ? `<div class="entry-badge" style="margin-top:10px">${p.entry}<br><small>Sujeito à análise de crédito.</small></div>` : ''}
+      <a href="https://wa.me/5527999999999?text=Olá, quero saber mais sobre o ${p.name}" class="wa">Chamar no WhatsApp</a>
     </div>
-
-    <a class="wa" target="_blank" href="https://www.payjoy.com/br/pfsh-valueprop?click_source=payjoysite" style="margin-top:18px;">
-      💳 Simular Aprovação no Boleto
-    </a>
   `;
-  
   modal.classList.add('active');
-  modal.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
 }
-
-function closeDetailsModal() {
-  const modal = document.getElementById('detailsModal');
-  if(modal) {
-    modal.classList.remove('active');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
-}
-
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeDetailsModal();
-});
 </script>
 </body>
 </html>
