@@ -81,6 +81,7 @@ a{color:inherit}
 }
 .product:hover .product-header img { transform: scale(1.05); }
 
+/* Botão discreto no card */
 .discreet-btn {
   margin-top: auto;
   font-size: 10px;
@@ -178,6 +179,7 @@ footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
 <body>
 <a class="floatwa" href="https://www.payjoy.com/br/pfsh-valueprop?click_source=payjoysite" target="_blank">Chamar no Instagram</a>
 
+<!-- INTRO / HERO SUPER LIMPA -->
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
@@ -196,6 +198,7 @@ footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
 </header>
 
 <main>
+<!-- NOVO TÍTULO DE ABERTURA -->
 <section class="section" style="padding-bottom: 20px;">
   <div class="wrap" style="text-align: center;">
     <h2 style="font-size: clamp(38px, 6vw, 58px); margin: 0; line-height: 1.05; font-weight: 1000; letter-spacing: -1px;">
@@ -205,6 +208,7 @@ footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
   </div>
 </section>
 
+<!-- TABS E FILTROS -->
 <section class="section" style="padding-top: 10px; padding-bottom: 40px;">
   <div class="wrap">
     <div class="tabs" id="seal-tabs">
@@ -349,7 +353,7 @@ const filterOrder={
 };
 function normNameStr(x){return String(x||'').toLowerCase().replace(/\b5g\b/g,'').replace(/\bnfc\b/g,'').replace(/\s+/g,' ').trim();}
 function productRankForFilter(p){ const order=(filterOrder[currentSeal]||[]).map(normNameStr); const name=normNameStr(p.name); const idx=order.indexOf(name); return idx===-1?999:idx; }
-function matchesSeal(p){ if(currentSeal === 'all') return true; const ms=badgeMeta(p)||[]; return ms.some(m=>m.key===currentSeal); }
+function matchesSeal(p){ if(currentSeal==all) return true; const ms=badgeMeta(p)||[]; return ms.some(m=>m.key===currentSeal); }
 
 function renderCatalog(){
   const premium=document.getElementById('premium-products');
@@ -397,8 +401,6 @@ function selectModalColor(photo, btn){
   btn.classList.add('active');
 }
 
-function closeDetailsModal() { document.getElementById('detailsModal').classList.remove('active'); }
-
 function openDetailsModal(i) {
   const p = productMap[i];
   if(!p) return;
@@ -430,22 +432,52 @@ function openDetailsModal(i) {
   
   content.innerHTML = `
     <div class="det-img-wrapper">
-      <img id="modal-img" src="${p.photo}" alt="${p.name}">
+      <img id="modal-img" src="${p.photo}" alt="${p.name}" onerror="this.style.display='none'">
     </div>
-    <h2 class="det-title">${p.name}</h2>
-    <div class="det-tagline">${p.mem}</div>
+    <div class="det-title">${p.name}</div>
+    <div class="det-tagline">${p.net} • Conectividade & Performance</div>
+    
+    <div class="det-pills">
+      <span class="det-pill">💾 Armazenamento Base: ${p.mem}</span>
+    </div>
+
     ${colorsHtml}
     ${versionsHtml}
-    <div class="det-specs-title">Destaques:</div>
-    <div class="det-specs-grid">${specsHtml}</div>
+
+    <div class="det-specs-title">Especificações Técnicas:</div>
+    <div class="det-specs-grid">
+      ${specsHtml}
+    </div>
+
     <div class="det-price-box">
       <div class="det-price-lbl">A partir de</div>
       <div class="det-price-val">${br(displayPrice)}</div>
-      <a href="https://wa.me/5527999999999?text=Olá, quero saber mais sobre o ${p.name}" class="wa">Chamar no WhatsApp</a>
+      <div class="boleto-tag" style="margin: 8px 0;">💳 Até <span>18x</span> no BOLETO</div>
+      ${p.entry ? `<div class="entry-badge" style="margin-top:10px">${p.entry}<br><small>Sujeito à análise de crédito.</small></div>` : ''}
     </div>
+
+    <a class="wa" target="_blank" href="https://www.payjoy.com/br/pfsh-valueprop?click_source=payjoysite" style="margin-top:18px;">
+      💳 Simular Aprovação no Boleto
+    </a>
   `;
+  
   modal.classList.add('active');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
 }
+
+function closeDetailsModal() {
+  const modal = document.getElementById('detailsModal');
+  if(modal) {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeDetailsModal();
+});
 </script>
 </body>
 </html>
