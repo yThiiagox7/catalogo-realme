@@ -102,18 +102,21 @@ a{color:inherit}
 }
 
 .prod-info {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  flex-grow:1;
+  text-align:center;
+  align-items:center;
 }
 .prod-cat {
-  font-size: 11px;
-  text-transform: uppercase;
-  color: #888;
-  letter-spacing: 0.05em;
-  margin-bottom: 6px;
-  font-weight: 700;
+    font-size: 15px;
+    font-weight: 900;
+    color: #F5C75B;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    margin-bottom: 8px;
+    text-align: center;
 }
 .prod-title {
   font-size: 17px;
@@ -311,8 +314,8 @@ function createCard(p, i) {
       <img src="${p.photo}" loading="lazy" alt="${p.name}" onerror="this.style.display='none'">
     </div>
     <div class="prod-info">
-      <div class="prod-cat">Smartphone</div>
-      <h3 class="prod-title">${p.name} • ${p.mem}</h3>
+      <div class="prod-cat">REALME</div>
+      <h3 class="prod-title">${p.name}</h3>
       <div class="prod-price">${br(displayPrice)}</div>
       <div class="prod-inst">ou em até 18x no boleto</div>
       <button class="prod-btn">Ver Detalhes</button>
