@@ -36,107 +36,123 @@ a{color:inherit}
 .hero-card:hover .phone-stack img{transform:scale(1.04)}
 
 /* =========================================================
-   3. SEÇÕES E BANNERS
+   3. SEÇÕES E FILTROS
 ========================================================= */
-.section{padding:58px 0}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:22px;margin-bottom:24px}
-.section h2{font-size:clamp(30px,4vw,48px);margin:0;letter-spacing:-2px}
-.section p{color:#bdbdbd;margin:8px 0 0}
-.tabs{display:flex;gap:10px;flex-wrap:wrap}
-.tab{background:#111;border:1px solid #2a2416;color:#eee;border-radius:999px;padding:10px 14px;font-weight:800;text-decoration:none}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.section{padding:40px 0}
+.tabs{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:30px}
+.tab{background:#111;border:1px solid #2a2416;color:#eee;border-radius:999px;padding:12px 20px;font-weight:800;text-decoration:none;font-size:14px;transition:all 0.2s}
+.tab:hover{border-color:var(--gold)}
+.seal-filter.active{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#080808;border-color:transparent}
+
+/* O Grid Unificado */
+.grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:20px}
 
 /* =========================================================
-   4. DESIGN DOS CARDS DE PRODUTOS
+   4. DESIGN DOS CARDS DE PRODUTOS (ESTILO E-COMMERCE CLÁSSICO)
 ========================================================= */
 .product {
-  background: linear-gradient(180deg, #141414, #080808);
-  border: 1px solid rgba(245, 199, 91, 0.22);
-  border-radius: 20px;
+  background: #101010;
+  border: 1px solid #222;
+  border-radius: 12px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
-.product.premium{border-color:rgba(245,199,91,.7);box-shadow:0 0 0 1px rgba(245,199,91,.08),0 28px 80px rgba(245,199,91,.08)}
 .product:hover {
+  border-color: var(--gold);
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 15px rgba(245, 199, 91, 0.15);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
 }
-.product-header {
-  position: relative;
-  height: 250px;
-  background: radial-gradient(circle at 50% 40%, rgba(245, 199, 91, 0.12), transparent 70%), #0a0a0a;
+
+.prod-img {
+  background: #181818;
+  height: 260px;
+  padding: 24px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 16px 16px 10px;
+  position: relative;
+  border-bottom: 1px solid #1a1a1a;
 }
-.product-header img {
-  max-width: 90%;
-  max-height: 75%;
+.prod-img img {
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.5));
   transition: transform 0.3s ease;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
 }
-.product:hover .product-header img { transform: scale(1.05); }
-
-/* Botão discreto no card */
-.discreet-btn {
-  margin-top: auto;
-  font-size: 10px;
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 5px 14px;
-  border-radius: 999px;
-  transition: all 0.2s ease;
+.product:hover .prod-img img {
+  transform: scale(1.06);
 }
-.product:hover .discreet-btn {
+.prod-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid var(--gold);
   color: var(--gold);
-  border-color: rgba(245, 199, 91, 0.3);
-  background: rgba(245, 199, 91, 0.08);
+  font-size: 10px;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
 }
 
-.badge-top-left { position: absolute; top: 12px; left: 12px; z-index: 2; }
-.badge-top-right {
-  position: absolute; top: 12px; right: 12px;
-  background: rgba(0, 0, 0, 0.75); border: 1px solid rgba(245, 199, 91, 0.4);
-  color: #f5c75b; font-size: 11px; font-weight: 800; padding: 4px 10px;
-  border-radius: 999px; backdrop-filter: blur(4px);
+.prod-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
-.pin-badge{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(245,199,91,.35);background:linear-gradient(135deg,rgba(245,199,91,.22),rgba(245,199,91,.08));border-radius:999px;padding:8px 11px;color:#fff;font-size:11px;font-weight:1000;box-shadow:0 8px 18px rgba(245,199,91,.16);letter-spacing:.02em}
-.pin-badge:before{content:"★";color:var(--gold);font-size:12px;line-height:1}
-
-.product-body { padding: 18px; flex-grow: 1; display:flex; flex-direction:column; }
-.brand-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #f5c75b; font-weight: 800; margin-bottom: 2px; }
-.product-name { font-size: 20px; font-weight: 900; color: #fff; margin: 0 0 12px 0; line-height: 1.2; }
-.storage-chip {
-  display: inline-block; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14);
-  color: #e0e0e0; font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 8px; margin-bottom: 12px;
+.prod-cat {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #888;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+  font-weight: 700;
 }
-.color-dots-wrap { display: flex; align-items: center; gap: 6px; margin-bottom: 16px; }
-.color-dot { width: 14px; height: 14px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.4); box-shadow: 0 2px 4px rgba(0,0,0,0.4); }
-.color-label { font-size: 12px; color: #a0a0a0; margin-left: 4px; }
-
-.price-block {
-  background: rgba(245, 199, 91, 0.05); border: 1px solid rgba(245, 199, 91, 0.2);
-  border-radius: 14px; padding: 12px; text-align: center; margin-top: auto;
+.prod-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 16px;
+  line-height: 1.3;
 }
-.price-label { font-size: 11px; text-transform: uppercase; color: #b0b0b0; letter-spacing: 0.05em; }
-.main-price { font-size: 26px; font-weight: 1000; color: #f5c75b; line-height: 1.1; margin: 2px 0; }
-.boleto-tag { font-size: 13px; font-weight: 800; color: #ffffff; display: flex; align-items: center; justify-content: center; gap: 5px; margin-top: 4px; }
-
-.version-buttons.compact{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-.version-btn.compact{padding:6px 10px;border-radius:8px;font-size:12px;line-height:1;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:#e0e0e0;font-weight:700;cursor:pointer;transition:.2s}
-.version-btn.compact:hover{border-color:rgba(245,199,91,.38)}
-.version-btn.compact.active{background:rgba(245,199,91,.15);color:var(--gold);border-color:var(--gold)}
+.prod-price {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--gold);
+  margin: auto 0 4px;
+  line-height: 1;
+}
+.prod-inst {
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+.prod-btn {
+  background: #1a1a1a;
+  color: #eee;
+  border: 1px solid #333;
+  padding: 14px;
+  text-align: center;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 13px;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+.product:hover .prod-btn {
+  background: var(--gold);
+  color: #000;
+  border-color: var(--gold);
+}
 
 /* =========================================================
    5. POP-UP / MODAL DETALHES
@@ -169,13 +185,12 @@ a{color:inherit}
 /* =========================================================
    6. COMPONENTES GERAIS
 ========================================================= */
-.seal-filter.active{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#080808;border-color:transparent}
 .entry-badge{margin:8px 0;padding:8px;border-radius:10px;background:#f5c75b;color:#111;font-weight:700;font-size:13px}.entry-badge small{font-weight:500;font-size:11px}
 .floatwa{position:fixed;right:18px;bottom:18px;z-index:20;background:var(--green);color:#061209;font-weight:1000;text-decoration:none;border-radius:999px;padding:14px 18px;box-shadow:0 16px 40px rgba(37,211,102,.35)}
 footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
 .small{font-size:12px;color:#888;line-height:1.45}
 
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.phone-stack{height:320px}.grid{grid-template-columns:1fr 1fr}.section-head{display:block}}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.phone-stack{height:320px}.grid{grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));}}
 @media(max-width:560px){.grid{grid-template-columns:1fr}.hero{padding:24px 0!important}.floatwa{left:18px;text-align:center}.brand{font-size:18px}}
 </style>
 </head>
@@ -201,8 +216,8 @@ footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
 </header>
 
 <main>
-<!-- NOVO TÍTULO DE ABERTURA -->
-<section class="section" style="padding-bottom: 20px;">
+<!-- TÍTULO DE ABERTURA -->
+<section style="padding-top: 40px; padding-bottom: 10px;">
   <div class="wrap" style="text-align: center;">
     <h2 style="font-family: 'Oswald', 'Bebas Neue', 'Impact', 'Arial Narrow', sans-serif-condensed, sans-serif; font-size: clamp(52px, 9vw, 92px); margin: 0; line-height: 0.95; font-weight: 900; text-transform: uppercase; letter-spacing: 0px; color: #f4efe6;">
       SMARTPHONES<br>SELECIONADOS
@@ -213,26 +228,24 @@ footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
   </div>
 </section>
 
-<!-- TABS E FILTROS -->
-<section class="section" style="padding-top: 10px; padding-bottom: 40px;">
+<!-- SEÇÃO DE CATÁLOGO (FILTROS E GRID ÚNICO) -->
+<section class="section" style="padding-top: 20px;">
   <div class="wrap">
+    
+    <!-- Filtros Simplificados -->
     <div class="tabs" id="seal-tabs">
-      <a class="tab seal-filter active" href="#" data-seal="all">Todos</a>
-      <a class="tab seal-filter" href="#" data-seal="mais-vendidos">Mais vendidos</a>
-      <a class="tab seal-filter" href="#" data-seal="mais-procurados">Mais procurados</a>
-      <a class="tab seal-filter" href="#" data-seal="custo-beneficio">Melhor custo-benefício</a>
-      <a class="tab seal-filter" href="#" data-seal="alta-resistencia">Alta resistência</a>
-      <a class="tab seal-filter" href="#" data-seal="maior-bateria">Maior bateria</a>
-      <a class="tab seal-filter" href="#" data-seal="cameras-premium">Câmeras premium</a>
+      <a class="tab seal-filter active" href="#" data-seal="nossa-recomendacao">Nossa Recomendação</a>
+      <a class="tab seal-filter" href="#" data-seal="mais-vendidos">Mais Vendidos</a>
+      <a class="tab seal-filter" href="#" data-seal="mais-procurados">Mais Procurados</a>
     </div>
+
+    <!-- Container do Grid Unificado -->
+    <div class="grid" id="product-grid">
+      <!-- Os produtos serão injetados aqui via JavaScript -->
+    </div>
+    
   </div>
 </section>
-
-<div class="wrap">
-  <section id="destaques" class="section" style="padding-top:0"><div class="section-head"><div><h2>👑 Destaques Premium</h2><p>Modelos com maior percepção de valor para abrir o catálogo.</p></div><div class="tabs"><a class="tab" href="#5g">5G</a><a class="tab" href="#4g">4G</a></div></div><div class="grid" id="premium-products"></div></section>
-  <section id="5g" class="section"><div class="section-head"><div><h2>🚀 Smartphones 5G</h2><p>Modelos separados das versões 4G para não confundir o cliente.</p></div></div><div class="grid" id="fiveg-products"></div></section>
-  <section id="4g" class="section"><div class="section-head"><div><h2>📱 Smartphones 4G</h2><p>Opções com ótimo custo-benefício e foco em memória, bateria e resistência.</p></div></div><div class="grid" id="fourg-products"></div></section>
-</div>
 </main>
 
 <footer>
@@ -242,6 +255,7 @@ footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
   </div>
 </footer>
 
+<!-- MODAL DE DETALHES MANTIDO INTACTO -->
 <div class="details-modal" id="detailsModal" aria-hidden="true" onclick="if(event.target===this) closeDetailsModal()">
   <div class="details-box" role="dialog" aria-modal="true">
     <button class="details-close" type="button" onclick="closeDetailsModal()" aria-label="Fechar detalhes">&times;</button>
@@ -281,117 +295,81 @@ const products=[
 {name:'realme Note 60x',cat:'4g',net:'4G',price:1149.90,mem:'4GB + 128GB',colors:['Preto','Verde'],tags:['Bateria de 5000mAh','Processador Octa-core','Câmera de 8MP com IA','Tela 6,74” 90Hz'],photo:'assets/note60x_black.png',variants:[{color:'Preto',photo:'assets/note60x_black.png'},{color:'Verde',photo:'assets/note60x_green.png'}]},
 {name:'realme Note 70',cat:'4g',net:'4G',price:1439.90,mem:'4GB + 256GB',colors:['Dourado','Preto'],tags:['Bateria de 6300mAh','Processador Octa-core','Câmera de 50MP com IA','Tela 6,74” 90Hz'],photo:'assets/note70_gold.png',variants:[{color:'Dourado',photo:'assets/note70_gold.png'},{color:'Preto',photo:'assets/note70_black.png'}],versions:[{label:'4GB + 256GB',mem:'4GB + 256GB',price:1439.90},{label:'8GB + 256GB',mem:'8GB + 256GB',price:1549.90}]}
 ];
-const colorMap={Preto:'#1a1a1a',Branco:'#f2f2f2',Roxo:'#8b63c7',Verde:'#5d8f73',Azul:'#4d86d9',Dourado:'#d9bd76',Cinza:'#8e8e8e','Pearl White':'#f4f3ed','Suede Grey':'#777','Preto Obsidian':'#232833','Roxo Lightning':'#cdb7ff','Roxo Escuro':'#3a315f','Preto Obsidiana':'#23242b','Azul Kingfisher':'#8fb8ff','Preto Swan':'#3b352f','Cisne Branco':'#ececec','Forest Owl':'#1b4d45'};
 
 function br(v){return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'}).replace('R$','R$ ')}
-const productMap = {};
-function safeId(i){return `prod-img-${i}`}
 
-function versionButtons(p,i,compact=false){
-  if(!p.versions || !p.versions.length) return '';
-  return `<div class="version-buttons compact">${p.versions.map((v,idx)=>`<button type="button" data-vgroup="${safeId(i)}" class="version-btn compact ${idx===0?'active':''}" onclick="event.stopPropagation(); selectVersion(${i}, '${v.label}', '${v.mem}', ${v.price}, this)">${v.label}</button>`).join('')}</div>`;
-}
-
-function selectVersion(i, label, mem, price, btn){
-  const card=document.getElementById('card-'+i); if(!card) return;
-  const memEl=card.querySelector('.mem-chip'); if(memEl) memEl.textContent=mem;
-  const priceEl=card.querySelector('.price strong'); if(priceEl) priceEl.textContent=br(price);
-  const wrap=btn.closest('.version-buttons'); if(wrap){ wrap.querySelectorAll('.version-btn').forEach(b=>b.classList.remove('active')); }
-  btn.classList.add('active');
-}
-
-function normalizeName(p){ return String(p.name||'').toLowerCase().replace('5g','').replace('nfc','').replace(/\s+/g,' ').trim(); }
-function badgeMeta(p){
- const n=normalizeName(p); const labels=[]; const has=(arr)=>arr.includes(n);
- if(has(['realme c85','realme c71','realme c75','realme note 70','realme note 60x'])) labels.push({label:'Mais vendido', key:'mais-vendidos'});
- if(has(['realme c75','realme c85','realme 14','realme note 70'])) labels.push({label:'Mais procurado', key:'mais-procurados'});
- if(has(['realme c85','realme c75','realme c71','realme c100i','realme note 70','realme note 60x'])) labels.push({label:'Custo-benefício', key:'custo-beneficio'});
- if(has(['realme c85 pro','realme c85','realme c71','realme 14','realme 14 pro+','realme note 70','realme note 60x'])) labels.push({label:'Alta resistência', key:'alta-resistencia'});
- if(has(['realme c85 pro','realme c85','realme c100i','realme c71','realme note 70','realme 14','realme 14 pro+','realme 14t','realme c75'])) labels.push({label:'Maior bateria', key:'maior-bateria'});
- if(has(['realme 14 pro+','realme 12 pro+','realme 14','realme 13','realme c85 pro','realme 14t'])) labels.push({label:'Câmeras premium', key:'cameras-premium'});
- return labels;
-}
-
-function card(p, i) {
-  productMap[i] = p;
-  const metas = badgeMeta(p);
-  const primaryBadge = metas.length > 0 ? metas[0].label : 'Destaque';
-  const dotsHtml = p.colors.map(c => `<span title="${c}" class="color-dot" style="background:${colorMap[c] || '#888'}"></span>`).join('');
+// Geração de Card Estilo E-commerce
+// Passamos o índice original 'i' para que o modal abra o produto correto sempre.
+function createCard(p, i) {
   let displayPrice = p.price;
   if (p.versions && p.versions.length > 0) { displayPrice = p.versions[0].price; }
 
   return `
-  <article id="card-${i}" class="product ${p.cat === 'premium' ? 'premium' : ''}" onclick="openDetailsModal(${i})">
-    <div class="product-header">
-      <div class="badge-top-left"><span class="pin-badge">${primaryBadge}</span></div>
-      <span class="badge-top-right">${p.net}</span>
-      <img id="${safeId(i)}" src="${p.photo}" loading="lazy" alt="${p.name}" onerror="this.style.display='none'">
-      <span class="discreet-btn">Ver detalhes</span>
+  <article class="product" onclick="openDetailsModal(${i})">
+    <div class="prod-img">
+      <span class="prod-badge">${p.net}</span>
+      <img src="${p.photo}" loading="lazy" alt="${p.name}" onerror="this.style.display='none'">
     </div>
-    <div class="product-body">
-      <div class="brand-title">Realme</div>
-      <h3 class="product-name">${p.name}</h3>
-      <div class="chips mem-switch" style="margin-bottom:12px;">
-        ${p.versions && p.versions.length ? versionButtons(p, i, true) : `<span class="storage-chip mem-chip">${p.mem}</span>`}
-      </div>
-      <div class="color-dots-wrap">
-        ${dotsHtml}
-        <span class="color-label">(${p.colors.length} ${p.colors.length > 1 ? 'cores' : 'cor'})</span>
-      </div>
-      <div class="price-block">
-        <div class="price-label">A partir de</div>
-        <div class="main-price price"><strong style="font-size:inherit; color:inherit; font-weight:inherit; text-shadow:none; letter-spacing:inherit; display:inline;">${br(displayPrice)}</strong></div>
-        <div class="boleto-tag">💳 Até <strong>18x no BOLETO</strong></div>
-      </div>
+    <div class="prod-info">
+      <div class="prod-cat">Smartphone</div>
+      <h3 class="prod-title">${p.name} • ${p.mem}</h3>
+      <div class="prod-price">${br(displayPrice)}</div>
+      <div class="prod-inst">ou em até 18x no boleto</div>
+      <button class="prod-btn">Ver Detalhes</button>
     </div>
   </article>`;
 }
 
-let currentSeal='all';
-const filterOrder={
- 'mais-vendidos':['realme c85','realme c71','realme c75','realme note 70','realme note 60x'],
- 'mais-procurados':['realme c75','realme c85','realme 14','realme note 70'],
- 'custo-beneficio':['realme c85','realme c75','realme c71','realme c100i','realme note 70','realme note 60x'],
- 'alta-resistencia':['realme c85 pro','realme c85','realme c71','realme 14','realme 14 pro+','realme note 70','realme note 60x'],
- 'maior-bateria':['realme c85 pro','realme c85','realme c100i','realme c71','realme note 70','realme 14','realme 14 pro+','realme 14t','realme c75'],
- 'cameras-premium':['realme 14 pro+','realme 12 pro+','realme 14','realme 13','realme c85 pro','realme 14t']
+// Lógica de Filtros Simplificada
+let currentSeal = 'nossa-recomendacao';
+
+
+const featuredOrders = {
+'nossa-recomendacao':['realme c85 nfc','realme c71','realme c75','realme note 70','realme note 60x'],
+'mais-vendidos':['realme c85 nfc','realme c71','realme c71 5g','realme c75','realme c75 5g','realme note 70','realme note 60x'],
+'mais-procurados':['realme c85 nfc','realme c71','realme note 70','realme c75','realme note 60x','realme 14t 5g','realme c100i']
 };
-function normNameStr(x){return String(x||'').toLowerCase().replace(/\b5g\b/g,'').replace(/\bnfc\b/g,'').replace(/\s+/g,' ').trim();}
-function productRankForFilter(p){ const order=(filterOrder[currentSeal]||[]).map(normNameStr); const name=normNameStr(p.name); const idx=order.indexOf(name); return idx===-1?999:idx; }
-function matchesSeal(p){ if(currentSeal==all) return true; const ms=badgeMeta(p)||[]; return ms.some(m=>m.key===currentSeal); }
-
+function normalizeName(name){return String(name||'').toLowerCase().trim();}
 function renderCatalog(){
-  const premium=document.getElementById('premium-products');
-  const fiveg=document.getElementById('fiveg-products');
-  const fourg=document.getElementById('fourg-products');
-  const mainSection=document.getElementById('destaques');
-  const fivegSection=document.getElementById('5g');
-  const fourgSection=document.getElementById('4g');
-  const title=mainSection.querySelector('h2');
-  const desc=mainSection.querySelector('p');
-
-  if(currentSeal==='all'){
-    mainSection.style.display=''; fivegSection.style.display=''; fourgSection.style.display='';
-    title.innerHTML='👑 Destaques Premium'; desc.textContent='Modelos com maior percepção de valor para abrir o catálogo.';
-    premium.innerHTML=products.filter(p=>p.cat==='premium').map((p,i)=>card(p,i)).join('');
-    fiveg.innerHTML=products.filter(p=>p.net==='5G'&&p.cat!=='premium').map((p,i)=>card(p,i+100)).join('');
-    fourg.innerHTML=products.filter(p=>p.net==='4G').map((p,i)=>card(p,i+200)).join('');
-    return;
-  }
-  mainSection.style.display=''; fivegSection.style.display='none'; fourgSection.style.display='none';
-  const activeBtn=document.querySelector(`.seal-filter[data-seal="${currentSeal}"]`);
-  const filterName=activeBtn ? activeBtn.textContent.trim() : 'Filtro selecionado';
-  title.innerHTML='✨ '+filterName; desc.textContent='Aparelhos agrupados conforme a ordem definida pela loja.';
-  const sorted=products.filter(p=>matchesSeal(p)).sort((a,b)=>productRankForFilter(a)-productRankForFilter(b));
-  premium.innerHTML=sorted.map((p,i)=>card(p,i+500)).join('');
+ const grid=document.getElementById('product-grid');
+ let arr=products.map((p,index)=>({p,index}));
+ const order=featuredOrders[currentSeal];
+ if(order){
+   arr.sort((a,b)=>{
+     const ai=order.indexOf(normalizeName(a.p.name));
+     const bi=order.indexOf(normalizeName(b.p.name));
+     if(ai===-1&&bi===-1) return 0;
+     if(ai===-1) return 1;
+     if(bi===-1) return -1;
+     return ai-bi;
+   });
+ }
+ grid.innerHTML=arr.map(x=>createCard(x.p,x.index)).join('');
 }
-function bindSealFilters(){ document.querySelectorAll('.seal-filter').forEach(a=>a.addEventListener('click',e=>{e.preventDefault(); currentSeal=a.dataset.seal; document.querySelectorAll('.seal-filter').forEach(x=>x.classList.remove('active')); a.classList.add('active'); renderCatalog();})); }
+
+// Vincula os botões das abas
+function bindSealFilters() {
+  document.querySelectorAll('.seal-filter').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      currentSeal = btn.dataset.seal;
+      
+      // Atualiza visual ativo
+      document.querySelectorAll('.seal-filter').forEach(x => x.classList.remove('active'));
+      btn.classList.add('active');
+      
+      // Refaz a listagem
+      renderCatalog();
+    });
+  });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     bindSealFilters();
     renderCatalog();
 });
 
+/* Funções do Modal mantidas (agora recebendo o índice exato) */
 function selectModalColor(photo, btn){
   const img = document.getElementById('modal-img');
   if(img){ 
@@ -407,8 +385,7 @@ function selectModalColor(photo, btn){
 }
 
 function openDetailsModal(i) {
-  // BUSCA O PRODUTO NO MAPA DE CARDS OU DIRETO DO ARRAY 'PRODUCTS'
-  const p = productMap[i] || products[i];
+  const p = products[i]; // Pegando diretamente pelo array absoluto. 
   if(!p) return;
   const modal = document.getElementById('detailsModal');
   const content = document.getElementById('detailsContent');
