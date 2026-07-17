@@ -4,11 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Catálogo Realme Vila Velha — Até 18x no Boleto</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700;900&family=Playfair+Display:ital,wght@1,700;1,900&display=swap" rel="stylesheet">
 <style>
 /* =========================================================
    1. VARIÁVEIS E BASE
@@ -184,6 +182,7 @@ footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
 <body>
 <a class="floatwa" href="https://www.payjoy.com/br/pfsh-valueprop?click_source=payjoysite" target="_blank">Chamar no Instagram</a>
 
+<!-- INTRO / HERO SUPER LIMPA -->
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
@@ -202,15 +201,19 @@ footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
 </header>
 
 <main>
+<!-- NOVO TÍTULO DE ABERTURA -->
 <section class="section" style="padding-bottom: 20px;">
   <div class="wrap" style="text-align: center;">
-    <h2 style="font-size: clamp(38px, 6vw, 58px); margin: 0; line-height: 1.05; font-weight: 1000; letter-spacing: -1px;">
-      SMARTPHONES<br><span style="color: var(--gold);">SELECIONADOS</span>
+    <h2 style="font-family: 'Oswald', 'Bebas Neue', 'Impact', 'Arial Narrow', sans-serif-condensed, sans-serif; font-size: clamp(52px, 9vw, 92px); margin: 0; line-height: 0.95; font-weight: 900; text-transform: uppercase; letter-spacing: 0px; color: #f4efe6;">
+      SMARTPHONES<br>SELECIONADOS
     </h2>
-    <p style="font-family: 'Caveat', 'Playfair Display', cursive, serif; font-size: 32px; color: var(--gold); font-weight: 600; margin-top: 8px; letter-spacing: 0.04em; text-shadow: 0 0 12px rgba(245, 199, 91, 0.2);">Escolha agora.</p>
+    <p style="font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif; font-style: italic; font-weight: 700; font-size: clamp(26px, 4.5vw, 42px); color: var(--gold); margin-top: 12px; margin-bottom: 0; letter-spacing: 0.01em;">
+      Escolha agora.
+    </p>
   </div>
 </section>
 
+<!-- TABS E FILTROS -->
 <section class="section" style="padding-top: 10px; padding-bottom: 40px;">
   <div class="wrap">
     <div class="tabs" id="seal-tabs">
@@ -355,7 +358,7 @@ const filterOrder={
 };
 function normNameStr(x){return String(x||'').toLowerCase().replace(/\b5g\b/g,'').replace(/\bnfc\b/g,'').replace(/\s+/g,' ').trim();}
 function productRankForFilter(p){ const order=(filterOrder[currentSeal]||[]).map(normNameStr); const name=normNameStr(p.name); const idx=order.indexOf(name); return idx===-1?999:idx; }
-function matchesSeal(p){ if(currentSeal==='all') return true; const ms=badgeMeta(p)||[]; return ms.some(m=>m.key===currentSeal); }
+function matchesSeal(p){ if(currentSeal==all) return true; const ms=badgeMeta(p)||[]; return ms.some(m=>m.key===currentSeal); }
 
 function renderCatalog(){
   const premium=document.getElementById('premium-products');
@@ -404,8 +407,7 @@ function selectModalColor(photo, btn){
 }
 
 function openDetailsModal(i) {
-  // BUSCA O PRODUTO NO MAPA DE CARDS OU DIRETO DO ARRAY 'PRODUCTS'
-  const p = productMap[i] || products[i];
+  const p = productMap[i];
   if(!p) return;
   const modal = document.getElementById('detailsModal');
   const content = document.getElementById('detailsContent');
