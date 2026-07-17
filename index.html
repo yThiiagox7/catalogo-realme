@@ -407,7 +407,8 @@ function selectModalColor(photo, btn){
 }
 
 function openDetailsModal(i) {
-  const p = productMap[i];
+  // Busca do mapeamento dinâmico ou diretamente da lista principal de produtos
+  const p = productMap[i] || products[i];
   if(!p) return;
   const modal = document.getElementById('detailsModal');
   const content = document.getElementById('detailsContent');
@@ -470,19 +471,3 @@ function openDetailsModal(i) {
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
 }
-
-function closeDetailsModal() {
-  const modal = document.getElementById('detailsModal');
-  if(modal) {
-    modal.classList.remove('active');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
-}
-
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeDetailsModal();
-});
-</script>
-</body>
-</html>
