@@ -181,7 +181,6 @@ footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
 
 @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.phone-stack{height:320px}.grid{grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));}}
 @media(max-width:560px){
-  /* MODIFICAÇÃO: Grid 2 colunas e design compacto */
   .grid{grid-template-columns:repeat(2,1fr);gap:10px}
   .prod-img{height:160px;padding:12px}
   .prod-info{padding:10px}
@@ -196,19 +195,26 @@ footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
 </style>
 </head>
 <body>
+  <div id="loader" style="position: fixed; inset: 0; background: #050505; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.5s;">
+  <h2 style="font-family: 'Oswald', sans-serif; color: #f5c75b; font-size: 24px; letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase;">REALME VILA VELHA</h2>
+  <div style="width: 200px; height: 3px; background: #222; border-radius: 999px; overflow: hidden;">
+    <div id="loader-bar" style="width: 0%; height: 100%; background: #f5c75b; transition: width 0.3s ease;"></div>
+  </div>
+  <!-- Contador de progresso -->
+  <div id="loader-percent" style="color: #f5c75b; font-size: 12px; margin-top: 10px; font-family: sans-serif; font-weight: bold;">0%</div>
+</div>
 <a class="floatwa" href="https://www.payjoy.com/br/pfsh-valueprop?click_source=payjoysite" target="_blank">Chamar no Instagram</a>
 
-<!-- INTRO / HERO SUPER LIMPA -->
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
       <div class="brand">CATÁLOGO REALME VILA VELHA</div>
       <div><span class="hero-badge">⭐ O MAIS VENDIDO</span></div>
       <h1>REALME C85</h1>
-      <div class="hero-price">R$ 2.399,90</div>
+      <div class="hero-price">R$ 2.349,90</div>
       <div class="hero-sub">Até 18x no boleto</div>
     </div>
-    <div class="hero-card" onclick="openDetailsModal(9)" style="cursor:pointer;" title="Clique para ver detalhes do Realme C85">
+    <div class="hero-card" onclick="openDetailsModal(0)" style="cursor:pointer;" title="Clique para ver detalhes">
       <div class="phone-stack">
         <img src="assets/c85_blue.png" alt="Realme C85" onerror="this.src='assets/banner_c85.png'">
       </div>
@@ -217,7 +223,6 @@ footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
 </header>
 
 <main>
-<!-- TÍTULO DE ABERTURA -->
 <section style="padding-top: 40px; padding-bottom: 10px;">
   <div class="wrap" style="text-align: center;">
     <h2 style="font-family: 'Oswald', 'Bebas Neue', 'Impact', 'Arial Narrow', sans-serif-condensed, sans-serif; font-size: clamp(52px, 9vw, 92px); margin: 0; line-height: 0.95; font-weight: 900; text-transform: uppercase; letter-spacing: 0px; color: #f4efe6;">
@@ -229,22 +234,14 @@ footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
   </div>
 </section>
 
-<!-- SEÇÃO DE CATÁLOGO (FILTROS E GRID ÚNICO) -->
 <section class="section" style="padding-top: 20px;">
   <div class="wrap">
-    
-    <!-- Filtros Simplificados -->
     <div class="tabs" id="seal-tabs">
       <a class="tab seal-filter active" href="#" data-seal="nossa-recomendacao">Nossa Recomendação</a>
       <a class="tab seal-filter" href="#" data-seal="mais-vendidos">Mais Vendidos</a>
       <a class="tab seal-filter" href="#" data-seal="mais-procurados">Mais Procurados</a>
     </div>
-
-    <!-- Container do Grid Unificado -->
-    <div class="grid" id="product-grid">
-      <!-- Os produtos serão injetados aqui via JavaScript -->
-    </div>
-    
+    <div class="grid" id="product-grid"></div>
   </div>
 </section>
 </main>
@@ -252,11 +249,10 @@ footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
 <footer>
   <div class="wrap">
     <b>Realme Store — Catálogo Boleto</b>
-    <p class="small">Atendimento via Instagram: @realme.es.vilavelha. Página criada para compartilhamento com clientes interessados em compra no boleto.</p>
+    <p class="small">Atendimento via Instagram: @realme.es.vilavelha.</p>
   </div>
 </footer>
 
-<!-- MODAL DE DETALHES MANTIDO INTACTO -->
 <div class="details-modal" id="detailsModal" aria-hidden="true" onclick="if(event.target===this) closeDetailsModal()">
   <div class="details-box" role="dialog" aria-modal="true">
     <button class="details-close" type="button" onclick="closeDetailsModal()" aria-label="Fechar detalhes">&times;</button>
@@ -265,42 +261,71 @@ footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
 </div>
 
 <script>
-const img={
- hero:'assets/realme14proplus_user.png',
- r14pro_user:'assets/realme14proplus_user.png',
- r12pro_user:'assets/realme12proplus_user.png',
- r14_user:'assets/realme14_user.png',
- r14:'https://static2.realme.net/images/realme-14-5g-th/1741856737772afcd42f4ed4c4e7cbc97f1ea73d34fce.webp',
- r14b:'https://static2.realme.net/images/realme-14-5g-th/1741856741592f7627396cf6c47fc9b06ed7149be14fa.webp',
- c100:'https://static2.realme.net/images/realme-c100i/1775615966293260f3a6aaca1497e8a31e2235028d077.webp',
- c100b:'https://static2.realme.net/images/realme-c100i/17756159663837c2804ec70e64a18b61e906e2befe055.webp',
- c75:'https://image01.realme.net/general/20250324/174278033106637f632eb13b8469f9300fce675c5409b.jpeg',
- c755g:'https://static2.realme.net/images/realme-c75-5g-global/174963494387490423a78f1f84d84a972c188c62929d9.webp',
- c71:'https://static2.realme.net/images/realme-c71-in/1751853547001327d6c5d95ab41aea3b2261981699709.webp',
- note70:'https://dcdn-us.mitiendanube.com/stores/004/891/876/products/1-aa71a0c90aaa01d9a917579741660964-480-0.webp'
+// === COLE AQUI A SUA URL DA API ===
+const URL_API = 'https://script.google.com/macros/s/AKfycbyvbUueldsN0mH2t5KhuUlT5UXpEw5fOYQ3-H77PSWYjzOp4ZzJnjLgdEllAwEEx7Gy/exec';
+
+let products = []; 
+
+// Lógica de ordenação/filtragem
+const featuredOrders = {
+  'nossa-recomendacao':['realme c85 nfc','realme c71','realme c75','realme note 70','realme note 60x'],
+  'mais-vendidos':['realme c85 nfc','realme c71','realme c71 5g','realme c75','realme c75 5g','realme note 70','realme note 60x'],
+  'mais-procurados':['realme c85 nfc','realme c71','realme note 70','realme c75','realme note 60x','realme 14t 5g','realme c100i']
 };
 
-const products=[
-{name:'realme 14 Pro+ 5G',cat:'premium',net:'5G',price:4299.90,mem:'12GB + 512GB',colors:['Pearl White','Suede Grey'],tags:['Bateria de 6000mAh + 80W⚡','Processador Snapdragon 7s Gen 3','Câmera de 50MP + Periscópio Sony 3X com OIS','Tela OLED 1.5K 6,83” 120Hz'],photo:'assets/pro_white.png',variants:[{color:'Pearl White',photo:'assets/pro_white.png'},{color:'Suede Grey',photo:'assets/pro_black.png'}],entry:'💳 Entrada a partir de R$ 2.700*'},
-{name:'realme 12 Pro+ 5G',cat:'premium',net:'5G',price:3699.90,mem:'12GB + 512GB',colors:['Azul'],tags:['Bateria de 5000mAh + 67W⚡','Processador Snapdragon 7s Gen 2','Câmera de 50MP + Periscópio 64MP com zoom 120X','Tela Curved Vision 6,7” 120Hz'],photo:img.r12pro_user,variants:[{color:'Azul',photo:img.r12pro_user}],entry:'💳 Entrada a partir de R$ 2.100*'},
-{name:'realme 14 5G',cat:'premium',net:'5G',price:2799.90,mem:'12GB + 256GB',colors:['Branco'],tags:['Bateria de 6000mAh + 45W⚡','Processador Snapdragon 6 Gen 4 5G','Câmera de 50MP com OIS','Tela AMOLED 6,67” 120Hz'],photo:img.r14_user,variants:[{color:'Branco',photo:img.r14_user}],entry:'💳 Entrada a partir de R$ 1.200*'},
-{name:'realme 14T 5G',cat:'5g',net:'5G',price:2449.90,mem:'8GB + 256GB',colors:['Preto Obsidian','Roxo Lightning'],tags:['Bateria de 6000mAh + 45W⚡','Processador Dimensity 6300 5G','Câmera de 50MP com IA','Tela AMOLED 6,67” 120Hz'],photo:'assets/r14t_black.png',variants:[{color:'Preto Obsidian',photo:'assets/r14t_black.png'},{color:'Roxo Lightning',photo:'assets/r14t_purple.png'}]},
-{name:'realme 13 5G',cat:'5g',net:'5G',price:2149.90,mem:'8GB + 256GB',colors:['Verde','Roxo Escuro'],tags:['Bateria de 5000mAh + 45W⚡','Processador Dimensity 6300 5G','Câmera de 50MP com OIS','Tela FHD+ 6,72” 120Hz'],photo:'assets/r13_green.png',variants:[{color:'Verde',photo:'assets/r13_green.png'},{color:'Roxo Escuro',photo:'assets/r13_purple.png'}]},
-{name:'realme C75 5G',cat:'5g',net:'5G',price:2119.90,mem:'8GB + 256GB',colors:['Preto Obsidiana','Dourado'],tags:['Bateria de 5828mAh + 45W⚡','Processador Dimensity 6300 5G','Câmera de 50MP com IA','Tela FHD 6,72” 90Hz'],photo:'assets/c75_5g_black.png',variants:[{color:'Preto Obsidiana',photo:'assets/c75_5g_black.png'},{color:'Dourado',photo:'assets/c75_5g_gold.png'}]},
-{name:'realme C71 5G',cat:'5g',net:'5G',price:1949.90,mem:'8GB + 256GB',colors:['Preto','Verde'],tags:['Bateria de 5000mAh','Processador Dimensity 6300 5G','Câmera de 50MP com IA','Tela IPS LCD 6,67” 120Hz'],photo:'assets/c71_5g_black.png',variants:[{color:'Preto',photo:'assets/c71_5g_black.png'},{color:'Verde',photo:'assets/c71_5g_green.png'}]},
-{name:'realme C100i',cat:'4g',net:'4G',price:1749.90,mem:'4GB + 128GB',colors:['Roxo','Cinza'],tags:['Bateria de 7000mAh','Processador Octa-core','Câmera de 50MP com IA','Tela 6,8” 120Hz'],photo:'assets/c100i_purple.png',variants:[{color:'Roxo',photo:'assets/c100i_purple.png'},{color:'Cinza',photo:'assets/c100i_gray.png'}],versions:[{label:'4GB + 128GB',mem:'4GB + 128GB',price:1749.90},{label:'4GB + 256GB',mem:'4GB + 256GB',price:1899.90}]},
-{name:'realme C85 Pro',cat:'4g',net:'4G',price:2599.90,mem:'8GB + 256GB',colors:['Roxo','Verde'],tags:['Bateria de 7000mAh + 45W⚡','Processador Snapdragon 685','Câmera de 50MP com IA','Tela AMOLED 6,67” 120Hz'],photo:'assets/c85pro_purple.png',variants:[{color:'Roxo',photo:'assets/c85pro_purple.png'},{color:'Verde',photo:'assets/c85pro_green.png'}]},
-{name:'realme C85 NFC',cat:'4g',net:'4G',price:2399.90,mem:'8GB + 256GB',colors:['Azul Kingfisher','Preto Swan'],tags:['Bateria de 7000mAh + 45W⚡','Processador Octa-core','Câmera de 50MP com IA','Tela Ultra Brilhante 6,67” 120Hz'],photo:'assets/c85_blue.png',variants:[{color:'Azul Kingfisher',photo:'assets/c85_blue.png'},{color:'Preto Swan',photo:'assets/c85_black.png'}]},
-{name:'realme C75',cat:'4g',net:'4G',price:2119.90,mem:'8GB + 256GB',colors:['Preto Obsidiana','Dourado'],tags:['Bateria de 5828mAh + 45W⚡','Processador Helio G92 Max','Câmera de 50MP com IA','Tela FHD 6,72” 90Hz'],photo:'assets/c75_black.png',variants:[{color:'Preto Obsidiana',photo:'assets/c75_black.png'},{color:'Dourado',photo:'assets/c75_gold.png'}]},
-{name:'realme C71',cat:'4g',net:'4G',price:1799.90,mem:'8GB + 256GB',colors:['Cisne Branco','Forest Owl'],tags:['Bateria de 6300mAh + 45W⚡','Processador Octa-core','Câmera de 50MP com IA','Tela 6,67” 120Hz'],photo:'assets/c71_white.png',variants:[{color:'Cisne Branco',photo:'assets/c71_white.png'},{color:'Forest Owl',photo:'assets/c71_forest.png'}]},
-{name:'realme Note 60x',cat:'4g',net:'4G',price:1149.90,mem:'4GB + 128GB',colors:['Preto','Verde'],tags:['Bateria de 5000mAh','Processador Octa-core','Câmera de 8MP com IA','Tela 6,74” 90Hz'],photo:'assets/note60x_black.png',variants:[{color:'Preto',photo:'assets/note60x_black.png'},{color:'Verde',photo:'assets/note60x_green.png'}]},
-{name:'realme Note 70',cat:'4g',net:'4G',price:1439.90,mem:'4GB + 256GB',colors:['Dourado','Preto'],tags:['Bateria de 6300mAh','Processador Octa-core','Câmera de 50MP com IA','Tela 6,74” 90Hz'],photo:'assets/note70_gold.png',variants:[{color:'Dourado',photo:'assets/note70_gold.png'},{color:'Preto',photo:'assets/note70_black.png'}],versions:[{label:'4GB + 256GB',mem:'4GB + 256GB',price:1439.90},{label:'8GB + 256GB',mem:'8GB + 256GB',price:1549.90}]}
-];
+function normalizeName(name){return String(name||'').toLowerCase().trim();}
+function br(v){return parseFloat(v).toLocaleString('pt-BR',{style:'currency',currency:'BRL'}).replace('R$','R$ ')}
 
-function br(v){return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'}).replace('R$','R$ ')}
+let currentSeal = 'nossa-recomendacao';
 
-// Geração de Card Estilo E-commerce
-// Passamos o índice original 'i' para que o modal abra o produto correto sempre.
+async function carregarDados() {
+  const loader = document.getElementById('loader');
+  const bar = document.getElementById('loader-bar');
+  const percentText = document.getElementById('loader-percent');
+  
+  let progress = 0;
+  
+  // Inicia a animação da barra (avança 1% a cada 30ms)
+  const interval = setInterval(() => {
+    if (progress < 95) { // Para em 95% enquanto espera os dados
+      progress++;
+      bar.style.width = progress + '%';
+      percentText.innerText = progress + '%';
+    }
+  }, 30);
+  
+  try {
+    const response = await fetch(URL_API);
+    const data = await response.json();
+    
+    // Processamento dos dados
+    products = data.map(p => ({
+      ...p,
+      colors: (p.colors && typeof p.colors === 'string' && p.colors.trim() !== "") ? JSON.parse(p.colors) : [],
+      tags: (p.tags && typeof p.tags === 'string' && p.tags.trim() !== "") ? JSON.parse(p.tags) : [],
+      variants: (p.variants && typeof p.variants === 'string' && p.variants.trim() !== "") ? JSON.parse(p.variants) : [],
+      versions: (p.versions && typeof p.versions === 'string' && p.versions.trim() !== "") ? JSON.parse(p.versions) : []
+    }));
+    
+    renderCatalog();
+    
+    // Finalização rápida para 100%
+    clearInterval(interval); // Para o contador automático
+    bar.style.width = '100%';
+    percentText.innerText = '100%';
+    
+    setTimeout(() => {
+      loader.style.opacity = '0';
+      setTimeout(() => loader.style.display = 'none', 500);
+    }, 300);
+    
+  } catch (err) {
+    clearInterval(interval); // Para em caso de erro
+    console.error("Erro ao carregar dados:", err);
+    loader.innerHTML = '<p style="color:white; font-family: sans-serif;">Erro ao carregar. Verifique a API.</p>';
+  }
+}
+
 function createCard(p, i) {
   let displayPrice = p.price;
   if (p.versions && p.versions.length > 0) { displayPrice = p.versions[0].price; }
@@ -320,20 +345,11 @@ function createCard(p, i) {
   </article>`;
 }
 
-// Lógica de Filtros Simplificada
-let currentSeal = 'nossa-recomendacao';
-
-
-const featuredOrders = {
-'nossa-recomendacao':['realme c85 nfc','realme c71','realme c75','realme note 70','realme note 60x'],
-'mais-vendidos':['realme c85 nfc','realme c71','realme c71 5g','realme c75','realme c75 5g','realme note 70','realme note 60x'],
-'mais-procurados':['realme c85 nfc','realme c71','realme note 70','realme c75','realme note 60x','realme 14t 5g','realme c100i']
-};
-function normalizeName(name){return String(name||'').toLowerCase().trim();}
 function renderCatalog(){
  const grid=document.getElementById('product-grid');
  let arr=products.map((p,index)=>({p,index}));
  const order=featuredOrders[currentSeal];
+ 
  if(order){
    arr.sort((a,b)=>{
      const ai=order.indexOf(normalizeName(a.p.name));
@@ -347,119 +363,75 @@ function renderCatalog(){
  grid.innerHTML=arr.map(x=>createCard(x.p,x.index)).join('');
 }
 
-// Vincula os botões das abas
 function bindSealFilters() {
   document.querySelectorAll('.seal-filter').forEach(btn => {
     btn.addEventListener('click', e => {
-      e.preventDefault();
+      e.preventDefault(); // Impede o salto para o topo da página
       currentSeal = btn.dataset.seal;
-      
-      // Atualiza visual ativo
       document.querySelectorAll('.seal-filter').forEach(x => x.classList.remove('active'));
       btn.classList.add('active');
-      
-      // Refaz a listagem
       renderCatalog();
     });
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    bindSealFilters();
-    renderCatalog();
-});
-
-/* Funções do Modal mantidas (agora recebendo o índice exato) */
+// Modal functions
 function selectModalColor(photo, btn){
   const img = document.getElementById('modal-img');
-  if(img){ 
-    img.style.opacity='0'; 
-    setTimeout(()=>{
-      img.src = photo; 
-      img.onload=()=>{img.style.opacity='1'};
-    }, 150); 
-  }
+  if(img){ img.style.opacity='0'; setTimeout(()=>{ img.src = photo; img.onload=()=>{img.style.opacity='1'}; }, 150); }
   const wrap = btn.closest('.color-buttons');
   if(wrap){ wrap.querySelectorAll('.color-btn').forEach(b=>b.classList.remove('active')); }
   btn.classList.add('active');
 }
 
 function openDetailsModal(i) {
-  const p = products[i]; // Pegando diretamente pelo array absoluto. 
+  const p = products[i];
   if(!p) return;
   const modal = document.getElementById('detailsModal');
   const content = document.getElementById('detailsContent');
-  
   const specsHtml = (p.tags || []).map(t => `<div class="det-spec-card"><span class="ico">✦</span><span>${t}</span></div>`).join('');
-  
   let displayPrice = p.price;
   let versionsHtml = '';
   
   if (p.versions && p.versions.length > 0) {
       displayPrice = p.versions[0].price;
-      versionsHtml = `<div class="det-specs-title">Versões Disponíveis:</div>
-                      <div class="det-pills" style="margin-bottom:15px;">
-                      ${p.versions.map(v => `<span class="det-pill">${v.label} - ${br(v.price)}</span>`).join('')}
-                      </div>`;
+      versionsHtml = `<div class="det-specs-title">Versões Disponíveis:</div><div class="det-pills" style="margin-bottom:15px;">${p.versions.map(v => `<span class="det-pill">${v.label} - ${br(v.price)}</span>`).join('')}</div>`;
   }
 
   let colorsHtml = '';
   if (p.variants && p.variants.length > 0) {
-      colorsHtml = `
-          <div class="det-specs-title" style="margin-top: 5px;">Escolha a cor:</div>
-          <div class="color-buttons" style="margin-bottom: 22px;">
-              ${p.variants.map((v, idx) => `<button type="button" class="color-btn ${idx === 0 ? 'active' : ''}" onclick="selectModalColor('${v.photo}', this)">${v.color}</button>`).join('')}
-          </div>
-      `;
+      colorsHtml = `<div class="det-specs-title" style="margin-top: 5px;">Escolha a cor:</div><div class="color-buttons" style="margin-bottom: 22px;">${p.variants.map((v, idx) => `<button type="button" class="color-btn ${idx === 0 ? 'active' : ''}" onclick="selectModalColor('${v.photo}', this)">${v.color}</button>`).join('')}</div>`;
   }
   
   content.innerHTML = `
-    <div class="det-img-wrapper">
-      <img id="modal-img" src="${p.photo}" alt="${p.name}" onerror="this.style.display='none'">
-    </div>
+    <div class="det-img-wrapper"><img id="modal-img" src="${p.photo}" alt="${p.name}" onerror="this.style.display='none'"></div>
     <div class="det-title">${p.name}</div>
     <div class="det-tagline">${p.net} • Conectividade & Performance</div>
-    
-    <div class="det-pills">
-      <span class="det-pill">💾 Armazenamento Base: ${p.mem}</span>
-    </div>
-
+    <div class="det-pills"><span class="det-pill">💾 Armazenamento Base: ${p.mem}</span></div>
     ${colorsHtml}
     ${versionsHtml}
-
     <div class="det-specs-title">Especificações Técnicas:</div>
-    <div class="det-specs-grid">
-      ${specsHtml}
-    </div>
-
+    <div class="det-specs-grid">${specsHtml}</div>
     <div class="det-price-box">
       <div class="det-price-lbl">A partir de</div>
       <div class="det-price-val">${br(displayPrice)}</div>
       <div class="boleto-tag" style="margin: 8px 0;">💳 Até <span>18x</span> no BOLETO</div>
       ${p.entry ? `<div class="entry-badge" style="margin-top:10px">${p.entry}<br><small>Sujeito à análise de crédito.</small></div>` : ''}
     </div>
-
-    <a class="wa" target="_blank" href="https://www.payjoy.com/br/pfsh-valueprop?click_source=payjoysite" style="margin-top:18px;">
-      💳 Simular Aprovação no Boleto
-    </a>
+    <a class="wa" target="_blank" href="https://www.payjoy.com/br/pfsh-valueprop?click_source=payjoysite" style="margin-top:18px;">💳 Simular Aprovação no Boleto</a>
   `;
-  
   modal.classList.add('active');
-  modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
 }
 
 function closeDetailsModal() {
   const modal = document.getElementById('detailsModal');
-  if(modal) {
-    modal.classList.remove('active');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
+  if(modal) { modal.classList.remove('active'); document.body.style.overflow = ''; }
 }
 
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeDetailsModal();
+document.addEventListener('DOMContentLoaded', () => {
+    bindSealFilters();
+    carregarDados();
 });
 </script>
 </body>
