@@ -227,7 +227,17 @@ footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
     z-index: 2;
     pointer-events: none;
 }
-
+/* Ajuste para mobile: diminui o badge para não sobrepor a imagem */
+@media(max-width: 560px) {
+    .nfc-badge {
+        width: 30px;  /* Reduzido de 42px para 30px */
+        height: 30px; /* Reduzido de 42px para 30px */
+        padding: 5px; /* Reduzido para ajustar o ícone ao novo tamanho */
+        top: 8px;
+        right: 8px;
+        border-radius: 6px; /* Ajuste na curvatura para acompanhar o tamanho menor */
+    }
+}
 .nfc-badge img {
     width: 100%;
     height: 100%;
