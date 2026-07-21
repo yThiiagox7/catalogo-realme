@@ -250,6 +250,23 @@ footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
     object-fit: contain;
     filter: brightness(0) invert(1); /* Deixa o logo branco para contrastar com o fundo escuro */
 }
+/* Estilo para o selo de Disponível / Indisponível */
+.prod-status {
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+.prod-status.disponivel {
+    color: #25d366; /* Verde vibrante */
+}
+.prod-status.indisponivel {
+    color: #ff5c5c; /* Tom avermelhado discreto */
+}
+.product.indisponivel-card {
+    opacity: 0.6; /* Deixa o card levemente esmaecido se esgotado */
+}
 </style>
 </head>
 <body>
@@ -387,26 +404,35 @@ async function carregarDados() {
 function createCard(p, i) {
   let displayPrice = p.price;
   if (p.versions && p.versions.length > 0) { displayPrice = p.versions[0].price; }
+  
   const nome = p.name.toLowerCase();
   const temNfc = !nome.includes('note 70') && !nome.includes('note 60x');
   const nfcBadge = temNfc ? `<div class="nfc-badge"><img src="assets/nfc-logo.png" alt="NFC"></div>` : '';
 
+  // Controla o status baseado na planilha (padrão: Disponível)
+  let statusText = p.status ? p.status.toUpperCase() : 'DISPONÍVEL';
+  let isIndisponivel = statusText.includes('INDISPONÍVEL') || statusText.includes('ESGOTADO');
+  let statusClass = isIndisponivel ? 'prod-status indisponivel' : 'prod-status disponivel';
+  let cardClass = isIndisponivel ? 'product indisponivel-card' : 'product';
+  let btnText = isIndisponivel ? 'Produto Indisponível' : 'Ver Detalhes';
+
   return `
-  <article class="product" onclick="openDetailsModal(${i})">
+  <article class="${cardClass}" onclick="openDetailsModal(${i})">
     <div class="prod-img">
       ${nfcBadge}
       <img src="${p.photo}" loading="lazy" alt="${p.name}" onerror="this.style.display='none'">
     </div>
     <div class="prod-info">
       <div class="prod-cat">REALME</div>
+      <div class="${statusClass}">${statusText}</div>
       <h3 class="prod-title">${p.name}</h3>
       <div class="prod-price">${br(displayPrice)}</div>
-      <button class="prod-btn">Ver Detalhes</button>
+      <button class="prod-btn">${btnText}</button>
     </div>
   </article>`;
 }
 
-// Renderiza o catálogo ordenando com base nas colunas numéricas da planilha
+// Renderiza o catálogo: Disponíveis primeiro, Indisponíveis por último, ordenados pela planilha
 function renderCatalog(){
  const grid = document.getElementById('product-grid');
  if(!grid) return;
@@ -414,13 +440,30 @@ function renderCatalog(){
  let arr = products.map((p, index) => ({p, index}));
  const colName = sealToColumn[currentSeal];
  
- if(colName) {
-   arr.sort((a, b) => {
+ arr.sort((a, b) => {
+   // 1. Verifica se são indisponíveis/esgotados
+   let statusA = a.p.status ? a.p.status.toUpperCase() : 'DISPONÍVEL';
+   let isIndisA = statusA.includes('INDISPONÍVEL') || statusA.includes('ESGOTADO');
+   
+   let statusB = b.p.status ? b.p.status.toUpperCase() : 'DISPONÍVEL';
+   let isIndisB = statusB.includes('INDISPONÍVEL') || statusB.includes('ESGOTADO');
+
+   // Se um for disponível e o outro indisponível, o disponível vem sempre primeiro
+   if (isIndisA !== isIndisB) {
+     return isIndisA ? 1 : -1;
+   }
+
+   // 2. Se ambos tiverem o mesmo status, ordena pelos números da planilha (ordem_recomendacao, etc.)
+   if (colName) {
      let valA = (a.p[colName] !== undefined && a.p[colName] !== "" && !isNaN(a.p[colName])) ? Number(a.p[colName]) : 999;
      let valB = (b.p[colName] !== undefined && b.p[colName] !== "" && !isNaN(b.p[colName])) ? Number(b.p[colName]) : 999;
-     return valA - valB;
-   });
- }
+     if (valA !== valB) {
+       return valA - valB;
+     }
+   }
+
+   return 0;
+ });
  
  grid.innerHTML = arr.map(x => createCard(x.p, x.index)).join('');
 }
