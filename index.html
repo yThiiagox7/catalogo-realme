@@ -267,6 +267,33 @@ footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
 .product.indisponivel-card {
     opacity: 0.6; /* Deixa o card levemente esmaecido se esgotado */
 }
+/* Estilo base e refinado para os botões de seleção (Cores e Versões) */
+.color-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #ccc;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.color-btn:hover {
+    border-color: rgba(245, 199, 91, 0.5);
+    color: #fff;
+    background: rgba(245, 199, 91, 0.08);
+}
+
+/* Estado selecionado: Degradê premium com sombra suave */
+/* Estado selecionado: Apenas contorno elegante em volta do botão */
+.color-btn.active {
+    background: rgba(245, 199, 91, 0.06); /* Fundo quase transparente, bem sutil */
+    color: #f5c75b; /* Texto assume a cor dourada para destacar */
+    border: 1.5px solid #f5c75b; /* Borda nítida em volta do botão */
+    box-shadow: 0 0 12px rgba(245, 199, 91, 0.2); /* Brilho suave ao redor */
+    font-weight: 800;
+}
 </style>
 </head>
 <body>
@@ -497,29 +524,41 @@ function openDetailsModal(i) {
   
   let displayPrice = p.price;
   let versionsHtml = '';
-  
   if (p.versions && p.versions.length > 0) {
       displayPrice = p.versions[0].price;
-      versionsHtml = `<div class="det-specs-title">Versões Disponíveis:</div><div class="det-pills" style="margin-bottom:15px;">${p.versions.map(v => `<span class="det-pill">${v.label} - ${br(v.price)}</span>`).join('')}</div>`;
+      versionsHtml = `
+        <div class="color-buttons version-container" style="margin: 12px 0 18px 0; display:flex; flex-wrap:wrap; gap:8px;">
+          ${p.versions.map((v, idx) => `
+            <button type="button" class="color-btn ${idx === 0 ? 'active' : ''}" style="padding:8px 14px; font-size:12px;" onclick="selectModalVersion(${v.price}, this)">
+              ${v.label}
+            </button>
+          `).join('')}
+        </div>`;
   }
 
   let colorsHtml = '';
   if (p.variants && p.variants.length > 0) {
-      colorsHtml = `<div class="det-specs-title" style="margin-top: 5px;">Escolha a cor:</div><div class="color-buttons" style="margin-bottom: 22px;">${p.variants.map((v, idx) => `<button type="button" class="color-btn ${idx === 0 ? 'active' : ''}" onclick="selectModalColor('${v.photo}', this)">${v.color}</button>`).join('')}</div>`;
+      colorsHtml = `
+        <div class="det-specs-title" style="margin-top: 5px;">Escolha a cor:</div>
+        <div class="color-buttons" style="margin-bottom: 22px;">
+          ${p.variants.map((v, idx) => `
+            <button type="button" class="color-btn ${idx === 0 ? 'active' : ''}" onclick="selectModalColor('${v.photo}', this)">
+              ${v.color}
+            </button>
+          `).join('')}
+        </div>`;
   }
   
   content.innerHTML = `
     <div class="det-img-wrapper"><img id="modal-img" src="${p.photo}" alt="${p.name}" onerror="this.style.display='none'"></div>
-    <div class="det-title">${p.name}</div>
-    <div class="det-tagline">${p.net} • Conectividade & Performance</div>
-    <div class="det-pills"><span class="det-pill">💾 Armazenamento Base: ${p.mem}</span></div>
-    ${colorsHtml}
+    <div class="det-title" style="margin-bottom: 4px;">${p.name}</div>
     ${versionsHtml}
-    <div class="det-specs-title">Especificações Técnicas:</div>
+    ${colorsHtml}
+    <div class="det-specs-title" style="margin-top: 15px;">Especificações Técnicas:</div>
     <div class="det-specs-grid">${specsHtml}</div>
     <div class="det-price-box">
-      <div class="det-price-lbl">A partir de</div>
-      <div class="det-price-val">${br(displayPrice)}</div>
+      <div class="det-price-lbl">Preço selecionado</div>
+      <div class="det-price-val" id="modal-price-val">${br(displayPrice)}</div>
       <div class="boleto-tag" style="margin: 8px 0;">💳 Até <span>18x</span> no BOLETO</div>
       ${p.entry ? `<div class="entry-badge" style="margin-top:10px">${p.entry}<br><small>Sujeito à análise de crédito.</small></div>` : ''}
     </div>
@@ -527,6 +566,15 @@ function openDetailsModal(i) {
   `;
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
+}
+
+function selectModalVersion(price, btn){
+  const priceEl = document.getElementById('modal-price-val');
+  if(priceEl){ priceEl.innerText = br(price); }
+  
+  const wrap = btn.closest('.version-container');
+  if(wrap){ wrap.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active')); }
+  btn.classList.add('active');
 }
 
 function closeDetailsModal() {
