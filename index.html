@@ -319,23 +319,22 @@ footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
 </div>
 
 <script>
-// === COLE AQUI A SUA URL DA API ===
+// === COLE A SUA URL DA API AQUI ===
 const URL_API = 'https://script.google.com/macros/s/AKfycbyvbUueldsN0mH2t5KhuUlT5UXpEw5fOYQ3-H77PSWYjzOp4ZzJnjLgdEllAwEEx7Gy/exec';
 
 let products = []; 
-
-// Lógica de ordenação/filtragem
-const featuredOrders = {
-  'nossa-recomendacao':['realme c85 nfc','realme c71','realme c75','realme note 70','realme note 60x'],
-  'mais-vendidos':['realme c85 nfc','realme c71','realme c71 5g','realme c75','realme c75 5g','realme note 70','realme note 60x'],
-  'mais-procurados':['realme c85 nfc','realme c71','realme note 70','realme c75','realme note 60x','realme 14t 5g','realme c100i']
-};
-
-function normalizeName(name){return String(name||'').toLowerCase().trim();}
-function br(v){return parseFloat(v).toLocaleString('pt-BR',{style:'currency',currency:'BRL'}).replace('R$','R$ ')}
-
 let currentSeal = 'nossa-recomendacao';
 
+// Mapeia cada aba do filtro para a coluna de ordenação correspondente na planilha
+const sealToColumn = {
+  'nossa-recomendacao': 'ordem_recomendacao',
+  'mais-vendidos': 'ordem_vendidos',
+  'mais-procurados': 'ordem_procurados'
+};
+
+function br(v){return parseFloat(v).toLocaleString('pt-BR',{style:'currency',currency:'BRL'}).replace('R$','R$ ')}
+
+// Função de carregamento com a barra fluida e contagem de porcentagem
 async function carregarDados() {
   const loader = document.getElementById('loader');
   const bar = document.getElementById('loader-bar');
@@ -343,12 +342,12 @@ async function carregarDados() {
   
   let progress = 0;
   
-  // Inicia a animação da barra (avança 1% a cada 30ms)
+  // Animação fluida da barra de progresso
   const interval = setInterval(() => {
-    if (progress < 95) { // Para em 95% enquanto espera os dados
+    if (progress < 95) {
       progress++;
-      bar.style.width = progress + '%';
-      percentText.innerText = progress + '%';
+      if(bar) bar.style.width = progress + '%';
+      if(percentText) percentText.innerText = progress + '%';
     }
   }, 30);
   
@@ -356,7 +355,6 @@ async function carregarDados() {
     const response = await fetch(URL_API);
     const data = await response.json();
     
-    // Processamento dos dados
     products = data.map(p => ({
       ...p,
       colors: (p.colors && typeof p.colors === 'string' && p.colors.trim() !== "") ? JSON.parse(p.colors) : [],
@@ -367,28 +365,28 @@ async function carregarDados() {
     
     renderCatalog();
     
-    // Finalização rápida para 100%
-    clearInterval(interval); // Para o contador automático
-    bar.style.width = '100%';
-    percentText.innerText = '100%';
+    // Finalização para 100%
+    clearInterval(interval);
+    if(bar) bar.style.width = '100%';
+    if(percentText) percentText.innerText = '100%';
     
     setTimeout(() => {
-      loader.style.opacity = '0';
-      setTimeout(() => loader.style.display = 'none', 500);
+      if(loader) {
+        loader.style.opacity = '0';
+        setTimeout(() => loader.style.display = 'none', 500);
+      }
     }, 300);
     
   } catch (err) {
-    clearInterval(interval); // Para em caso de erro
+    clearInterval(interval);
     console.error("Erro ao carregar dados:", err);
-    loader.innerHTML = '<p style="color:white; font-family: sans-serif;">Erro ao carregar. Verifique a API.</p>';
+    if(loader) loader.innerHTML = '<p style="color:white; font-family: sans-serif; text-align:center;">Erro ao carregar catálogo. Verifique a API.</p>';
   }
 }
 
 function createCard(p, i) {
   let displayPrice = p.price;
   if (p.versions && p.versions.length > 0) { displayPrice = p.versions[0].price; }
-
-  // Lógica: Se não for Note 70 nem Note 60x, adiciona o badge
   const nome = p.name.toLowerCase();
   const temNfc = !nome.includes('note 70') && !nome.includes('note 60x');
   const nfcBadge = temNfc ? `<div class="nfc-badge"><img src="assets/nfc-logo.png" alt="NFC"></div>` : '';
@@ -403,34 +401,34 @@ function createCard(p, i) {
       <div class="prod-cat">REALME</div>
       <h3 class="prod-title">${p.name}</h3>
       <div class="prod-price">${br(displayPrice)}</div>
-      <div class="prod-inst">ou em até 18x no boleto</div>
       <button class="prod-btn">Ver Detalhes</button>
     </div>
   </article>`;
 }
 
+// Renderiza o catálogo ordenando com base nas colunas numéricas da planilha
 function renderCatalog(){
- const grid=document.getElementById('product-grid');
- let arr=products.map((p,index)=>({p,index}));
- const order=featuredOrders[currentSeal];
+ const grid = document.getElementById('product-grid');
+ if(!grid) return;
  
- if(order){
-   arr.sort((a,b)=>{
-     const ai=order.indexOf(normalizeName(a.p.name));
-     const bi=order.indexOf(normalizeName(b.p.name));
-     if(ai===-1&&bi===-1) return 0;
-     if(ai===-1) return 1;
-     if(bi===-1) return -1;
-     return ai-bi;
+ let arr = products.map((p, index) => ({p, index}));
+ const colName = sealToColumn[currentSeal];
+ 
+ if(colName) {
+   arr.sort((a, b) => {
+     let valA = (a.p[colName] !== undefined && a.p[colName] !== "" && !isNaN(a.p[colName])) ? Number(a.p[colName]) : 999;
+     let valB = (b.p[colName] !== undefined && b.p[colName] !== "" && !isNaN(b.p[colName])) ? Number(b.p[colName]) : 999;
+     return valA - valB;
    });
  }
- grid.innerHTML=arr.map(x=>createCard(x.p,x.index)).join('');
+ 
+ grid.innerHTML = arr.map(x => createCard(x.p, x.index)).join('');
 }
 
 function bindSealFilters() {
   document.querySelectorAll('.seal-filter').forEach(btn => {
     btn.addEventListener('click', e => {
-      e.preventDefault(); // Impede o salto para o topo da página
+      e.preventDefault();
       currentSeal = btn.dataset.seal;
       document.querySelectorAll('.seal-filter').forEach(x => x.classList.remove('active'));
       btn.classList.add('active');
@@ -439,7 +437,6 @@ function bindSealFilters() {
   });
 }
 
-// Modal functions
 function selectModalColor(photo, btn){
   const img = document.getElementById('modal-img');
   if(img){ img.style.opacity='0'; setTimeout(()=>{ img.src = photo; img.onload=()=>{img.style.opacity='1'}; }, 150); }
@@ -449,11 +446,12 @@ function selectModalColor(photo, btn){
 }
 
 function openDetailsModal(i) {
-  const p = products[i];
-  if(!p) return;
+  const p = products[i]; if(!p) return;
   const modal = document.getElementById('detailsModal');
   const content = document.getElementById('detailsContent');
+  
   const specsHtml = (p.tags || []).map(t => `<div class="det-spec-card"><span class="ico">✦</span><span>${t}</span></div>`).join('');
+  
   let displayPrice = p.price;
   let versionsHtml = '';
   
@@ -492,6 +490,10 @@ function closeDetailsModal() {
   const modal = document.getElementById('detailsModal');
   if(modal) { modal.classList.remove('active'); document.body.style.overflow = ''; }
 }
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeDetailsModal();
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     bindSealFilters();
