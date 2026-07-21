@@ -294,6 +294,41 @@ footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
     box-shadow: 0 0 12px rgba(245, 199, 91, 0.2); /* Brilho suave ao redor */
     font-weight: 800;
 }
+/* Subtítulo com traços nas laterais estilo banner */
+.det-subtitle {
+    font-size: 11px;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+/* Título principal com destaque dourado na última palavra */
+.det-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    color: #fff;
+}
+
+.det-title span {
+    color: var(--gold);
+}
+/* Estilo para versões esgotadas / indisponíveis */
+.color-btn.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    border-color: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.02);
+    color: #666;
+    pointer-events: none; /* Impede qualquer clique */
+}
 </style>
 </head>
 <body>
@@ -524,23 +559,36 @@ function openDetailsModal(i) {
   
   let displayPrice = p.price;
   let versionsHtml = '';
+  
   if (p.versions && p.versions.length > 0) {
-      displayPrice = p.versions[0].price;
+      // Encontra a primeira versão disponível para ser a padrão selecionada
+      let defaultIdx = p.versions.findIndex(v => v.available !== false);
+      if (defaultIdx === -1) defaultIdx = 0;
+      
+      displayPrice = p.versions[defaultIdx].price;
+      
       versionsHtml = `
-        <div class="color-buttons version-container" style="margin: 12px 0 18px 0; display:flex; flex-wrap:wrap; gap:8px;">
-          ${p.versions.map((v, idx) => `
-            <button type="button" class="color-btn ${idx === 0 ? 'active' : ''}" style="padding:8px 14px; font-size:12px;" onclick="selectModalVersion(${v.price}, this)">
-              ${v.label}
-            </button>
-          `).join('')}
+        <div class="color-buttons version-container" style="margin: 12px 0 18px 0; display:flex; flex-wrap:wrap; gap:8px; justify-content:center;">
+          ${p.versions.map((v, idx) => {
+            const isUnavailable = v.available === false;
+            const isActive = (idx === defaultIdx) && !isUnavailable;
+            const btnClass = `color-btn ${isActive ? 'active' : ''} ${isUnavailable ? 'disabled' : ''}`;
+            const action = isUnavailable ? '' : `onclick="selectModalVersion(${v.price}, this)"`;
+            
+            return `
+              <button type="button" class="${btnClass}" style="padding:8px 14px; font-size:12px;" ${action}>
+                ${v.label}
+              </button>
+            `;
+          }).join('')}
         </div>`;
   }
 
   let colorsHtml = '';
   if (p.variants && p.variants.length > 0) {
       colorsHtml = `
-        <div class="det-specs-title" style="margin-top: 5px;">Escolha a cor:</div>
-        <div class="color-buttons" style="margin-bottom: 22px;">
+        <div class="det-specs-title" style="margin-top: 5px; text-align:center;">Escolha a cor:</div>
+        <div class="color-buttons" style="margin-bottom: 22px; justify-content:center;">
           ${p.variants.map((v, idx) => `
             <button type="button" class="color-btn ${idx === 0 ? 'active' : ''}" onclick="selectModalColor('${v.photo}', this)">
               ${v.color}
@@ -549,9 +597,20 @@ function openDetailsModal(i) {
         </div>`;
   }
   
+  // Formata o nome dividindo a última palavra para ficar em dourado
+  const nameWords = p.name.trim().split(' ');
+  const lastWord = nameWords.pop();
+  const restOfName = nameWords.join(' ');
+  const formattedTitle = restOfName ? `${restOfName} <span>${lastWord}</span>` : `<span>${lastWord}</span>`;
+  
+  // Define o subtítulo com traços (usa a tecnologia de rede ou um padrão da marca)
+  // Define o subtítulo lendo da planilha (coluna 'subtitle'), se houver
+  const subtitleText = p.subtitle ? p.subtitle.toUpperCase() : (p.net ? `-- ${p.net} • PERFORMANCE --` : `-- REALME VILA VELHA --`);
+
   content.innerHTML = `
     <div class="det-img-wrapper"><img id="modal-img" src="${p.photo}" alt="${p.name}" onerror="this.style.display='none'"></div>
-    <div class="det-title" style="margin-bottom: 4px;">${p.name}</div>
+    <div class="det-subtitle">${subtitleText}</div>
+    <div class="det-title">${formattedTitle}</div>
     ${versionsHtml}
     ${colorsHtml}
     <div class="det-specs-title" style="margin-top: 15px;">Especificações Técnicas:</div>
