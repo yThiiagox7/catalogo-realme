@@ -329,6 +329,22 @@ footer{padding:40px 0 80px;border-top:1px solid #2b2416;color:#aaa}
     color: #666;
     pointer-events: none; /* Impede qualquer clique */
 }
+/* Dica discreta de clique abaixo da imagem */
+.card-tap-hint {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.35);
+    text-align: center;
+    margin: 4px 0 12px 0;
+    transition: color 0.2s ease;
+}
+
+/* Quando o cliente passar o mouse ou tocar no card, a dica acende levemente em dourado */
+.product:hover .card-tap-hint {
+    color: var(--gold);
+}
 </style>
 </head>
 <body>
@@ -471,12 +487,10 @@ function createCard(p, i) {
   const temNfc = !nome.includes('note 70') && !nome.includes('note 60x');
   const nfcBadge = temNfc ? `<div class="nfc-badge"><img src="assets/nfc-logo.png" alt="NFC"></div>` : '';
 
-  // Controla o status baseado na planilha (padrão: Disponível)
   let statusText = p.status ? p.status.toUpperCase() : 'DISPONÍVEL';
   let isIndisponivel = statusText.includes('INDISPONÍVEL') || statusText.includes('ESGOTADO');
   let statusClass = isIndisponivel ? 'prod-status indisponivel' : 'prod-status disponivel';
   let cardClass = isIndisponivel ? 'product indisponivel-card' : 'product';
-  let btnText = isIndisponivel ? 'Produto Indisponível' : 'Ver Detalhes';
 
   return `
   <article class="${cardClass}" onclick="openDetailsModal(${i})">
@@ -484,12 +498,12 @@ function createCard(p, i) {
       ${nfcBadge}
       <img src="${p.photo}" loading="lazy" alt="${p.name}" onerror="this.style.display='none'">
     </div>
+    <div class="card-tap-hint">VER DETALHES</div>
     <div class="prod-info">
       <div class="prod-cat">REALME</div>
       <div class="${statusClass}">${statusText}</div>
       <h3 class="prod-title">${p.name}</h3>
       <div class="prod-price">${br(displayPrice)}</div>
-      <button class="prod-btn">${btnText}</button>
     </div>
   </article>`;
 }
